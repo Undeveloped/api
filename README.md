@@ -1,5 +1,9 @@
 # Domains API - V1
 ### API Endpoint
+**Showing a domain**
+
+    GET https://undeveloped.com/api/v1/domains/<id>
+
 **Creating a domain**
 
     POST https://undeveloped.com/api/v1/domains
@@ -13,6 +17,7 @@
     DELETE https://undeveloped.com/api/v1/domains/<id>
 
 `<id>` is the unique identifier of the domain you want to update/delete.
+This could either be our internal id or the name of the domain (ie: `example.com`)
 
 ### Authorization
 In order to use the API, you need your authorization token (auth token).  
@@ -22,6 +27,24 @@ For example, if you are using `curl` you can authorize your request like this:
     $ curl -H "Authorization: Token <your_token>" https://undeveloped.com/api/v1/domains
 
 If you don't provide an auth token, or your auth token is incorrect, you will receive a `401 Unauthorized` http response code.
+### Showing domains
+If you already have a domain in our system and you want to see which information is currently in your portfolio.
+
+example:
+```
+get /api/v1/domains/example.com
+```
+```
+{
+  "domain": {
+    "id": 123,
+    "name": "example.com",
+    "buy_now_price": 5000,
+    "starting_offer": 1000
+  }
+}
+```
+
 ### Creating domains
 In order to create a domain and add it to your account portfolio, you need to send an http `POST` request to the API endpoint.  
 The request should contain a `domain` object which contains the attributes for your new domain. For example, here is a domain in JSON format:
@@ -106,7 +129,7 @@ If the request fails to update the domain, a `400 Bad Request` http response cod
 **NOTE: Your request must contain your authorization token in the request header. See the authorization section above for more information.**
 
 ### Deleting domains
-To delete a domain from your account portfolio, you need to send an http `DELETE` request to 
+To delete a domain from your account portfolio, you need to send an http `DELETE` request to
 
     https://undeveloped.com/api/v1/domains/<id>
 
