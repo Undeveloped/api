@@ -27,6 +27,7 @@ For example, if you are using `curl` you can authorize your request like this:
     $ curl -H "Authorization: Token <your_token>" https://undeveloped.com/api/v1/domains
 
 If you don't provide an auth token, or your auth token is incorrect, you will receive a `401 Unauthorized` http response code.
+
 ### Showing domains
 If you already have a domain in our system and you want to see which information is currently in your portfolio.
 
