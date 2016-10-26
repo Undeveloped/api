@@ -21,7 +21,7 @@ Here’s how you retrieve an exact match from the Domain Pool.
 post /dp/v1/demand/exact/<domain_name>
 ```
 
-Currently we have three possible options from exact match queries. We’ve got domains with a price and are so called buy now (BUY_NOW), domains where the buyer can only make an offer (MAKE_OFFER) and finally domains that might be for sale (MAYBE_FOR_SALE) which are identified as registered but unused.
+Currently we have three possible options from exact match queries. Domains with a price will return a so called called buy now (BUY_NOW) price, domains where the buyer can only make an offer (MAKE_OFFER) returns no price and finally domains that might be for sale (MAYBE_FOR_SALE) will also be classified as such to identify they are registered but unused.
 
 **Buy now domains**
 ```
@@ -38,7 +38,7 @@ Currently we have three possible options from exact match queries. We’ve got d
               "currency_code": "EUR",
               "formatted": "€200"
             }
-          }  
+          }
         }
       ]
     }
@@ -50,11 +50,11 @@ Currently we have three possible options from exact match queries. We’ve got d
 "results": [
   {
     "domain": {
-      "name": "domain_name.com",      
+      "name": "domain_name.com",
       "options": [
         {
           "make_offer": {
-            "url": "https://undeveloped.com/buy-domain/.com/domain_name.com",      
+            "url": "https://undeveloped.com/buy-domain/.com/domain_name.com",
           }
         }
       ]
