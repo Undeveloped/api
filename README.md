@@ -1,5 +1,9 @@
 # Domains API - V1
 ### API Endpoint
+**Listing all domains**
+
+    GET https://undeveloped.com/api/v1/domains/
+
 **Showing a domain**
 
     GET https://undeveloped.com/api/v1/domains/<id>
@@ -28,6 +32,33 @@ For example, if you are using `curl` you can authorize your request like this:
 
 If you don't provide an auth token, or your auth token is incorrect, you will receive a `401 Unauthorized` http response code.
 
+### Listing all domains
+If you like to see all the domains in your portfolio.
+
+example:
+```
+get /api/v1/domains/
+```
+```json
+{
+  "domains": [
+    {
+      "id": 123,
+      "name": "example.com",
+      "buy_now_price": 5000,
+      "starting_offer": 1000
+    },
+    {
+      "id": 124,
+      "name": "other.com",
+      "buy_now_price": 200,
+      "starting_offer": 50
+    },
+    #etc..
+  ]
+}
+```
+
 ### Showing domains
 If you already have a domain in our system and you want to see which information is currently in your portfolio.
 
@@ -35,7 +66,7 @@ example:
 ```
 get /api/v1/domains/example.com
 ```
-```
+```json
 {
   "domain": {
     "id": 123,
@@ -49,14 +80,15 @@ get /api/v1/domains/example.com
 ### Creating domains
 In order to create a domain and add it to your account portfolio, you need to send an http `POST` request to the API endpoint.  
 The request should contain a `domain` object which contains the attributes for your new domain. For example, here is a domain in JSON format:
-
-    {
-        "domain": {
-            "name": "example.com",
-            "buy_now_price": 5000,
-            "starting_offer": 1000
-        }
-    }
+```json
+{
+  "domain": {
+    "name": "example.com",
+    "buy_now_price": 5000,
+    "starting_offer": 1000
+  }
+}
+```
 
 Here is the description of each of the domain attributes:
 
@@ -70,14 +102,16 @@ A sample `curl` request would be like this (JSON):
 
 Here we are passing in a JSON object which is the domain we want to create. If the domain is added successfully, you will receive a `200 OK` http response code, with a response body such as this:
 
-    {
-        "domain": {
-            "id": 147042,
-            "name": "example.com",
-            "buy_now_price": 5000,
-            "starting_offer": 1000
-        }
-    }
+```json
+{
+  "domain": {
+    "id": 147042,
+    "name": "example.com",
+    "buy_now_price": 5000,
+    "starting_offer": 1000
+  }
+}
+```
 
 This is the same domain that you wanted to create. The important thing to notice here is the `id` attribute. You can use this `id` to update/delete the domain using this API (see below).
 
@@ -85,9 +119,11 @@ A `400 Bad Request` http response code means that the domain was not created suc
 
 For example, a request trying to create a domain with an invalid `name` returns the following response body:
 
-    {
-        "error": "Domain name is invalid"
-    }
+```json
+{
+  "error": "Domain name is invalid"
+}
+```
 
 
 **NOTE: Your request must contain your authorization token in the request header. See the authorization section above for more information.**
@@ -101,27 +137,30 @@ where `id` is the unique identifier of your domain. You have received the `id` o
 
 Just like with creating domains, you should send a `domain` object along with your request. This object should hold the new values for attributes you want to update. An example `domain` object in `JSON` would be like this:
 
-
-    {
-        "domain": {
-            "name": "anothername.com",
-            "buy_now_price": 10000,
-            "starting_offer": 4000
-        }
-    }
+```json
+{
+  "domain": {
+    "name": "anothername.com",
+    "buy_now_price": 10000,
+    "starting_offer": 4000
+  }
+}
+```
 
 You can update any of the domain attributes. Your update request must update at least one attribute of the domain, otherwise it will fail.
 
 A successful update will return a `200 OK` http response code which contains the updated `domain` object in the body. Here is an example response from a domain update request:
 
-    {
-        "domain": {
-            "id": 147042,
-            "name": "anothername.com",
-            "buy_now_price": 10000,
-            "starting_offer": 4000
-        }
-    }
+```json
+{
+  "domain": {
+    "id": 147042,
+    "name": "anothername.com",
+    "buy_now_price": 10000,
+    "starting_offer": 4000
+  }
+}
+```
 
 Note that you can not update the `id` attribute of a domain.
 
