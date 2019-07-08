@@ -2,7 +2,7 @@
 ### API Endpoint
 **Exact match**
 
-    POST https://undeveloped.com/dp/v1/demand/exact/<domain_name>
+    POST https://dan.com/dp/v1/demand/exact/<domain_name>
 
 
 ### Authorization
@@ -10,7 +10,7 @@ In order to perform a successful API request you always have to include your aut
 
 For example, if you are using `curl` you can authorize your request like this:
 
-    $ curl -H "Authorization: Token <your_token>" https://undeveloped.com/dp/v1/demand/exact/{domain_name}
+    $ curl -H "Authorization: Token <your_token>" https://dan.com/dp/v1/demand/exact/{domain_name}
 
 If you don't provide an auth token, or your auth token is incorrect, you will receive a `401 Unauthorized` http response code.
 
@@ -32,7 +32,7 @@ Currently we have three possible options from exact match queries. Domains with 
       "options": [
         {
           "buy_now": {
-            "url": "https://undeveloped.com/buy-domain/.com/domain_name.com",
+            "url": "https://dan.com/buy-domain/.com/domain_name.com",
             "amount": {
               "value": 20000,
               "currency_code": "EUR",
@@ -54,7 +54,7 @@ Currently we have three possible options from exact match queries. Domains with 
       "options": [
         {
           "make_offer": {
-            "url": "https://undeveloped.com/buy-domain/.com/domain_name.com",
+            "url": "https://dan.com/buy-domain/.com/domain_name.com",
           }
         }
       ]
@@ -71,7 +71,7 @@ Currently we have three possible options from exact match queries. Domains with 
       "options": [
         {
           "maybe_for_sale": {
-            "url": "https://undeveloped.com/search/com/domain_name.com"
+            "url": "https://dan.com/search/com/domain_name.com"
           }
         }
       ]

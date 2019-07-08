@@ -1,36 +1,38 @@
 # Domains API - V1
+
+### Authorization
+In order to use the API, you need your authorization token (auth token).
+To authorize your API access, you need to pass in the auth token with each request you make. You can do this by passing a header along with your request. The format of the header is `Authorization: Token <your_token>`, where `your_token` is your auth token.
+For example, if you are using `curl` you can authorize your request like this:
+
+    $ curl -H "Authorization: Token <your_token>" https://dan.com/api/v1/domains
+
+If you don't provide an auth token, or your auth token is incorrect, you will receive a `401 Unauthorized` http response code.
+
 ### API Endpoint
 **Listing all domains**
 
-    GET https://undeveloped.com/api/v1/domains/
+    GET https://dan.com/api/v1/domains/
 
 **Showing a domain**
 
-    GET https://undeveloped.com/api/v1/domains/<id>
+    GET https://dan.com/api/v1/domains/<id>
 
 **Creating a domain**
 
-    POST https://undeveloped.com/api/v1/domains
+    POST https://dan.com/api/v1/domains
 
 **Updating a domain**
 
-    PUT https://undeveloped.com/api/v1/domains/<id>
+    PUT https://dan.com/api/v1/domains/<id>
 
 **Deleting a domain**
 
-    DELETE https://undeveloped.com/api/v1/domains/<id>
+    DELETE https://dan.com/api/v1/domains/<id>
 
 `<id>` is the unique identifier of the domain you want to update/delete.
 This could either be our internal id or the name of the domain (ie: `example.com`)
 
-### Authorization
-In order to use the API, you need your authorization token (auth token).  
-To authorize your API access, you need to pass in the auth token with each request you make. You can do this by passing a header along with your request. The format of the header is `Authorization: Token <your_token>`, where `your_token` is your auth token.  
-For example, if you are using `curl` you can authorize your request like this:
-
-    $ curl -H "Authorization: Token <your_token>" https://undeveloped.com/api/v1/domains
-
-If you don't provide an auth token, or your auth token is incorrect, you will receive a `401 Unauthorized` http response code.
 
 ### Listing all domains
 If you like to see all the domains in your portfolio.
@@ -98,7 +100,7 @@ Here is the description of each of the domain attributes:
 
 A sample `curl` request would be like this (JSON):
 
-    $ curl -H "Content-Type: application/json" -X POST --data '{"domain": {"name": "example.com", "buy_now_price": 5000, "starting_offer": 1000}}' -H "Authorization: Token <your_token>" https://undeveloped.com/api/v1/domains
+    $ curl -H "Content-Type: application/json" -X POST --data '{"domain": {"name": "example.com", "buy_now_price": 5000, "starting_offer": 1000}}' -H "Authorization: Token <your_token>" https://dan.com/api/v1/domains
 
 Here we are passing in a JSON object which is the domain we want to create. If the domain is added successfully, you will receive a `200 OK` http response code, with a response body such as this:
 
@@ -131,7 +133,7 @@ For example, a request trying to create a domain with an invalid `name` returns 
 ### Updating domains
 To update a domain, you simply need to send an http `PUT` request to
 
-    https://undeveloped.com/api/v1/domains/<id>
+    https://dan.com/api/v1/domains/<id>
 
 where `id` is the unique identifier of your domain. You have received the `id` of the domain when creating the domain using the API. Refer to **Creating domains** section for more information.
 
@@ -171,13 +173,13 @@ If the request fails to update the domain, a `400 Bad Request` http response cod
 ### Deleting domains
 To delete a domain from your account portfolio, you need to send an http `DELETE` request to
 
-    https://undeveloped.com/api/v1/domains/<id>
+    https://dan.com/api/v1/domains/<id>
 
 where `id` is the unique identifier of your domain. You have received the `id` of the domain when creating the domain using the API. Refer to **Creating domains** section for more information.
 
 An example `curl` command to delete a domain is like this:
 
-    $ curl -X DELETE -H "Authorization: Token <your_token>" https://undeveloped.com/api/v1/domains/147042
+    $ curl -X DELETE -H "Authorization: Token <your_token>" https://dan.com/api/v1/domains/147042
 
 A `200 OK` http response code indicates that the domain has been deleted successfully. In case of any errors, you will receive a `500 Internal server error`.
 
