@@ -665,3 +665,40 @@ PUT https://dan.com/api/integrator/v1/conversations/<id>
 delete https://dan.com/api/integrator/v1/conversations/<id>
 ```
 
+### Error messages:
+
+Currently we return following resource-related error messages:
+
+```
+missing
+invalid
+already_exists
+must_greater_than_or_equal_to_%{count}
+must_be_less_than_%{count}
+not_a_number
+must_be_accepted
+doesnt_match_%{attribute}
+must_be_even
+is_reserved
+must_be_greater_than_%{count}
+must_be_less_than_or_equal_to_%{count}
+not_an_integer
+must_be_odd
+must_be_other_than_%{count}
+must_be_blank
+too_long_max_%{count}
+too_short_min_%{count}
+wrong_length_must_be_%{count}
+```
+
+The %{count} means the value assigned to the the error key can be dynamic.
+So for example, when creating an order using ```orders``` endpoint with params: `{price: 50}`, you will encounter a following error response:
+
+```
+{
+ "message": {
+   "price": ["must_greater_than_or_equal_to_100"]
+ }
+}
+```
+
