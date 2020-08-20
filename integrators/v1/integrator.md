@@ -72,13 +72,25 @@ POST /api/integrator/v1/orders
 
 ##### Attributes
 
-Name | Type | Description
---- | --- | ---
-`client_integrator_token` | String | The token that the client copied from dan.com into your system
-`price` | Integer | The price of the domain
-`currency_code` | String | The currency of the price. At DAN.COM we support the following currencies as the base price: Euro (EUR), Dollar (USD) and British Pound (GBP)
-`domain_name` | String | The name of the domain
-`vat_option` | String | Define if the price is including or excluding vat. When the price is including vat and it appears that the buyer needs to pay vat then the vat is substracted from the price, otherwise it will be added to the price. In this example the price was excluded so the total price the buyer had to pay is the given price plus the vat. The expected values are either: 'vat_option_exclude' or 'vat_option_include'. 
+Name | Type | Description | Required
+--- | --- | --- | ---
+`client_integrator_token` | String | The token that the client copied from dan.com into your system | yes
+`price` | Integer | The price of the domain | yes
+`currency_code` | String | The currency of the price. At DAN.COM we support the following currencies as the base price: Euro (EUR), Dollar (USD) and British Pound (GBP) | yes
+`domain_name` | String | The name of the domain | yes
+`vat_option` | String | Define if the price is including or excluding vat. When the price is including vat and it appears that the buyer needs to pay vat then the vat is substracted from the price, otherwise it will be added to the price. In this example the price was excluded so the total price the buyer had to pay is the given price plus the vat. The expected values are either: `vat_option_exclude`, `vat_option_include` or `vat_option_do_not_show`. | yes
+`name` | String | The buyer's full name | yes
+`email` | String | The buyer's email | yes
+`phone` | String | The buyer's phone number | yes
+`country_code` | String | ALPHA-2 country code of the buyer. | no
+`company` | String | Buyer's company name  | only if `buyer_type == "business"`
+`address1` | String | The buyer's address | no
+`address2` | String | The buyer's additional address information. | no
+`city` | String | The buyer's city | no
+`zip` | String | Zip code of the buyer. | no
+`state` | String | The US state of the buyer, in Two-Letter State Abbreviations format. | only if `country_code == "US"`
+`buyer_type` | String | Buyer type. `individual` or `business`. | no
+`vat_number` | String | VAT number of the buyer | only if `buyer_type == "business"` AND the country_code represents an EU country.
 
 ##### Result
 
