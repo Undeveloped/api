@@ -24,7 +24,7 @@ When all company and payout details are set you can contact support so we'll be 
 
 ## Authorization
 In order to use the API, you need your `Integrator API Token` to generate an expiring authorization token (auth_token).
-You can find your `Integrator API Token` in your [settings page](htttps://dan.com/users/settings/profile), in the section "Integrator".
+You can find your `Integrator API Token` in your [settings page](https://dan.com/users/settings/profile), in the section "Integrator".
 
 So first generate an expiring authorization token:
 
