@@ -8,7 +8,7 @@ At DAN.COM  we offer three types of integration through our api.
 - Medium
 - Advanced
 
-With the light version the integrator can setup transactions on behave of a seller on DAN.COM. In this case the transaction is setup by the integrator where DAN.COM will do payment collection and escrow for that transaction. The integrator will need the sellers `Dan Distribution Network ID`, which the seller can find in their [settings page](htttps://dan.com/users/settings/profile).
+With the light version the integrator can setup transactions on behalf of a seller on DAN.COM. In this case the transaction is setup by the integrator where DAN.COM will do payment collection and escrow for that transaction. The integrator will need the sellers `Dan Distribution Network ID`, which the seller can find in their [settings page](htttps://dan.com/users/settings/profile).
 
 With the Medium version the integrator is able to create checkout pages and to integrate our communication pages as embedded pages into the integrators platform.
 
