@@ -36,7 +36,7 @@ result:
 
 ```json
 {
-	"token":"<your_token>"
+ "token":"<your_token>"
 }
 ```
 
@@ -68,7 +68,7 @@ POST /api/integrator/v1/orders
 
 ##### Example curl:
 
-	$ curl -H "Authorization: Token :auth_token" -X POST -d "price=1000&currency_code=EUR&domain_name=testdomain.com&vat_option=vat_option_exclude&client_integrator_token=:client_integrator_token" https://dan.com/api/integrator/v1/orders/
+ $ curl -H "Authorization: Token :auth_token" -X POST -d "price=1000&currency_code=EUR&domain_name=testdomain.com&vat_option=vat_option_exclude&client_integrator_token=:client_integrator_token" https://dan.com/api/integrator/v1/orders/
 
 ##### Attributes
 
@@ -100,29 +100,29 @@ Name | Type | Description | Required
 
 ```json
 {
-	"order": {
-		"id":1234,
-		"price":1000.0,
-		"company":null,
-		"status":"pending_payment",
-		"address1":null,
-		"address2":null,
-		"zip":null,
-		"city":null,
-		"country_code":null,
-		"vat_rate":0.0,
-		"vat":0.0,
-		"total":1000.0,
-		"currency_code":"EUR",
+ "order": {
+  "id":1234,
+  "price":1000.0,
+  "company":null,
+  "status":"pending_payment",
+  "address1":null,
+  "address2":null,
+  "zip":null,
+  "city":null,
+  "country_code":null,
+  "vat_rate":0.0,
+  "vat":0.0,
+  "total":1000.0,
+  "currency_code":"EUR",
     "vat_option":"vat_option_exclude",
     "buying_action": "buy_now",
-		"vat_number":null,
-		"token":"29a5f8db",
-		"paid_at":null,
-		"created_at":"2020-07-20T11:41:33.474+02:00",
-		"checkout_url":"https://dan.com/orders/29a5f8db/checkout",
-		"domain_name":"testdomain.com"
-	}
+  "vat_number":null,
+  "token":"29a5f8db",
+  "paid_at":null,
+  "created_at":"2020-07-20T11:41:33.474+02:00",
+  "checkout_url":"https://dan.com/orders/29a5f8db/checkout",
+  "domain_name":"testdomain.com"
+ }
 }
 ```
 
@@ -130,31 +130,31 @@ Name | Type | Description | Required
 
 ```json
 {
-	"order": {
-		"id":1234,
-		"price":12000.0,
-		"company":null,
-		"status":"pending_payment",
-		"address1":null,
-		"address2":null,
-		"zip":null,
-		"city":null,
-		"country_code":null,
-		"vat_rate":0.0,
-		"vat":0.0,
-		"total":12000.0,
-		"currency_code":"EUR",
+ "order": {
+  "id":1234,
+  "price":12000.0,
+  "company":null,
+  "status":"pending_payment",
+  "address1":null,
+  "address2":null,
+  "zip":null,
+  "city":null,
+  "country_code":null,
+  "vat_rate":0.0,
+  "vat":0.0,
+  "total":12000.0,
+  "currency_code":"EUR",
     "vat_option":"vat_option_exclude",
     "buying_action": "buy_in_installments",
     "number_of_installments": 60,
     "installment_total": 200,
-		"vat_number":null,
-		"token":"29a5f8db",
-		"paid_at":null,
-		"created_at":"2020-07-20T11:41:33.474+02:00",
-		"checkout_url":"https://dan.com/orders/29a5f8db/checkout",
-		"domain_name":"testdomain.com"
-	}
+  "vat_number":null,
+  "token":"29a5f8db",
+  "paid_at":null,
+  "created_at":"2020-07-20T11:41:33.474+02:00",
+  "checkout_url":"https://dan.com/orders/29a5f8db/checkout",
+  "domain_name":"testdomain.com"
+ }
 }
 ```
 
@@ -168,41 +168,41 @@ GET /api/integrator/v1/orders
 
 ##### Example curl:
 
-	$ curl -H "Authorization: Token :auth_token" https://dan.com/api/integrator/v1/orders/
+ $ curl -H "Authorization: Token :auth_token" https://dan.com/api/integrator/v1/orders/
 
 ##### Result
 
 ```json
 {
-	"orders": [
-		{
-			"id":1234,
-			"price":1000.0,
-			"company":null,
-			"status":"pending_payment",
-			"address1":null,
-			"address2":null,
-			"zip":null,
-			"city":null,
-			"country_code":null,
-			"vat_rate":0.0,
-			"vat":0.0,
-			"total":1000.0,
-			"currency_code":"EUR",
+ "orders": [
+  {
+   "id":1234,
+   "price":1000.0,
+   "company":null,
+   "status":"pending_payment",
+   "address1":null,
+   "address2":null,
+   "zip":null,
+   "city":null,
+   "country_code":null,
+   "vat_rate":0.0,
+   "vat":0.0,
+   "total":1000.0,
+   "currency_code":"EUR",
       "vat_option":"vat_option_exclude",
       "buying_action": "buy_now",
-			"vat_number":null,
+   "vat_number":null,
       "token":"29a5f8db",
       "buying_type"
-			"paid_at":null,
-			"created_at":"2020-07-20T11:41:33.474+02:00",
-			"checkout_url":"https://dan.com/orders/29a5f8db/checkout",
-			"domain_name":"testdomain.com"
-		},
-		{
-			# etc
-		}
-	]
+   "paid_at":null,
+   "created_at":"2020-07-20T11:41:33.474+02:00",
+   "checkout_url":"https://dan.com/orders/29a5f8db/checkout",
+   "domain_name":"testdomain.com"
+  },
+  {
+   # etc
+  }
+ ]
 }
 ```
 
@@ -213,8 +213,8 @@ GET /api/integrator/v1/orders/:order_id
 ```
 
 #### Example curl:
-	
-	$ curl -H "Authorization: Token :auth_token" https://dan.com/api/integrator/v1/orders/:order_id
+ 
+ $ curl -H "Authorization: Token :auth_token" https://dan.com/api/integrator/v1/orders/:order_id
 
 #### Attributes
 
@@ -226,29 +226,29 @@ Result
 
 ```json
 {
-	"order": {
-		"id":1234,
-		"price":1000.0,
-		"company":null,
-		"status":"pending_payment",
-		"address1":null,
-		"address2":null,
-		"zip":null,
-		"city":null,
-		"country_code":null,
-		"vat_rate":0.0,
-		"vat":0.0,
-		"total":1000.0,
-		"currency_code":"EUR",
+ "order": {
+  "id":1234,
+  "price":1000.0,
+  "company":null,
+  "status":"pending_payment",
+  "address1":null,
+  "address2":null,
+  "zip":null,
+  "city":null,
+  "country_code":null,
+  "vat_rate":0.0,
+  "vat":0.0,
+  "total":1000.0,
+  "currency_code":"EUR",
     "vat_option":"vat_option_exclude",
     "buying_action": "buy_now",
-		"vat_number":null,
-		"token":"29a5f8db",
-		"paid_at":null,
-		"created_at":"2020-07-20T11:41:33.474+02:00",
-		"checkout_url":"https://dan.com/orders/29a5f8db/checkout",
-		"domain_name":"testdomain.com"
-	}
+  "vat_number":null,
+  "token":"29a5f8db",
+  "paid_at":null,
+  "created_at":"2020-07-20T11:41:33.474+02:00",
+  "checkout_url":"https://dan.com/orders/29a5f8db/checkout",
+  "domain_name":"testdomain.com"
+ }
 }
 ```
 
@@ -309,7 +309,7 @@ POST https://dan.com/api/integrator/v1/clients
 
 ```json
 {
-	"client": {
+ "client": {
       "company": "Company name",
       "address1": "Some street name 1",
       "address2": "",
@@ -376,8 +376,8 @@ GET https://dan.com/api/integrator/v1/clients/<id>
 ```
 ```json
 {
-	"client": {
-	   "id": 1234,
+ "client": {
+    "id": 1234,
       "company": "Company name",
       "address1": "Some street name 1",
       "address2": "",
@@ -406,7 +406,7 @@ PUT https://dan.com/api/integrator/v1/clients/<dan_distribution_network_id>
 ```
 ```
 {
-	"client": {
+ "client": {
       "company": "Company name",
       "address1": "Some street name 1",
       "address2": "",
