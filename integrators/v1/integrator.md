@@ -601,13 +601,47 @@ A `200 OK` http response code indicates that the domain has been deleted success
 ## Conversations/Transactions
 To have the negotiation setup our system starts out with a conversation, the moment a conversation reaches the agreement reached status an order will be created which is used for the payment collection.
 
+### available_actions
+
+It loosely follows HATEOAS pattern: https://en.wikipedia.org/wiki/HATEOAS and lists all the available actions (either for saller or buyer) at a certain conversation/transaction state.
+The structure of ```available_actions``` is following:
+
+```json
+{
+  "available_actions": {
+    "buyer_actions": {
+      "ACTION_NAME": {
+        "method": "HTTP_METHOD",
+        "link": "RESOURCE_URL",
+        "params": "AN OBJECT WITH PARAMS DEFINITIONS",
+      }
+    },
+    "seller_actions": {
+      "method": "HTTP_METHOD",
+      "link": "RESOURCE_URL",
+      "params": "AN OBJECT WITH PARAMS DEFINITIONS",
+    }
+  }
+}
+```
+
+#### Params definitions
+
+The ```params_defintions``` key contains information about the parameter names and their data types, for example:
+
+```
+  bid: "integer" - it means that the system expects a bid parameter of a type integer
+  domain_transfer_method: ["transfer_via_push", "transfer_via_auth_code"] - the systeintem expects one of the values listed within the array (mutually exclusive)
+  
+```
+
 ### Listing all Conversations 
 
 ```
 GET https://dan.com/api/integrator/v1/conversations/
 ```
 
-```
+```json
 {
   "conversations": [
     {
@@ -617,11 +651,12 @@ GET https://dan.com/api/integrator/v1/conversations/
       "name": "Buyer name",
       "phone": "Buyer phone",
       "email": "Buyer email",
-      "buyer_type": "individual"
-      "last_bid": "1000"
+      "buyer_type": "individual",
+      "last_bid": "1000",
       "company_name": "",
       "currency": "USD | GBP | EUR",
-      "token": ":token"
+      "token": ":token",
+      "conversation_state": "counter_offer",
       "vat_option": "vat_option_include | vat_option_exclude",
       "embedded_seller_url": "https://dan.com/integrator/conversations/:token",
       "embedded_buyer_url": "https://dan.com/conversations/:token",
@@ -634,7 +669,7 @@ GET https://dan.com/api/integrator/v1/conversations/
           },
           "offer": {
             "method": "put",
-            "href": "https://dan.com/conversations/:token/offer?bid=:bid",
+            "href": "https://dan.com/conversations/:token/offer",
             "params": {"bid": "integer"}
           },
           "accept": {
@@ -651,7 +686,7 @@ GET https://dan.com/api/integrator/v1/conversations/
           },
           "counter": {
             "method": "put",
-            "href": "https://dan.com/conversations/:token/offer?bid=:bid",
+            "href": "https://dan.com/conversations/:token/offer",
             "params": {"bid": "integer"}
           },
           "accept": {
@@ -681,11 +716,12 @@ POST https://dan.com/api/integrator/v1/conversations
       "name": "Buyer name",
       "phone": "Buyer phone",
       "email": "Buyer email",
-      "buyer_type": "individual"
-      "last_bid": "1000"
+      "buyer_type": "individual",
+      "last_bid": "1000",
       "company_name": "",
       "currency": "USD | GBP | EUR",
-      "token": ":token"
+      "token": ":token",
+      "conversation_state": "counter_offer",
       "vat_option": "vat_option_include | vat_option_exclude",
       "embedded_seller_url": "https://dan.com/integrator/conversations/:token",
       "embedded_buyer_url": "https://dan.com/conversations/:token",
@@ -698,7 +734,7 @@ POST https://dan.com/api/integrator/v1/conversations
           },
           "offer": {
             "method": "put",
-            "href": "https://dan.com/conversations/:token/offer?bid=:bid",
+            "href": "https://dan.com/conversations/:token/offer",
             "params": {"bid": "integer"}
           },
           "accept": {
@@ -715,7 +751,7 @@ POST https://dan.com/api/integrator/v1/conversations
           },
           "counter": {
             "method": "put",
-            "href": "https://dan.com/conversations/:token/offer?bid=:bid",
+            "href": "https://dan.com/conversations/:token/offer?",
             "params": {"bid": "integer"}
           },
           "accept": {
@@ -735,6 +771,8 @@ POST https://dan.com/api/integrator/v1/conversations
 GET https://dan.com/api/integrator/v1/conversations/<id>
 ```
 
+#### Conversation in "domain_transfer_initiated" state
+
 ```json
 {
   "conversation": {
@@ -744,68 +782,71 @@ GET https://dan.com/api/integrator/v1/conversations/<id>
     "name": "Buyer name",
     "phone": "Buyer phone",
     "email": "Buyer email",
-    "buyer_type": "individual"
-    "last_bid": "1000"
+    "buyer_type": "individual",
+    "last_bid": "1000",
     "company_name": "",
     "currency": "USD | GBP | EUR",
-    "token": ":token"
+    "token": ":token",
+    "conversation_state": "domain_transfer_initiated",
     "vat_option": "vat_option_include | vat_option_exclude",
     "embedded_seller_url": "https://dan.com/integrator/conversations/:token",
     "embedded_buyer_url": "https://dan.com/conversations/:token",
-    "available_actions": {{
+    "available_actions": {
       "id": 12,
       "client_id": 1234,
       "domain_name": "example.com",
       "name": "Buyer name",
       "phone": "Buyer phone",
       "email": "Buyer email",
-      "buyer_type": "individual"
-      "last_bid": "1000"
+      "buyer_type": "individual",
+      "last_bid": "1000",
       "company_name": "",
       "currency": "USD | GBP | EUR",
-      "token": ":token"
+      "token": ":token",
       "vat_option": "vat_option_include | vat_option_exclude",
       "embedded_seller_url": "https://dan.com/integrator/conversations/:token",
       "embedded_buyer_url": "https://dan.com/conversations/:token",
       "links": {
         "buyer_actions": {
-          "reject": {
-            "method": "put",
-            "href": "https://dan.com/conversations/:token/reject",
-            "params": {},
-          },
-          "offer": {
-            "method": "put",
-            "href": "https://dan.com/conversations/:token/offer?bid=:bid",
-            "params": {"bid": "integer"}
-          },
-          "accept": {
-            "method": "put",
-            "href": "https://dan.com/conversations/:token/accept",
-            "params": {}
+          "message": {
+            "method": "post",
+            "href": "https://dan.com/conversations/:token/message",
+            "params": {"description": "string"}
           }
         },
         "seller_actions": {
-          "revoke": {
+          "choose_domain_transfer_method": {
             "method": "put",
-            "href": "https://dan.com/conversations/:token/revoke",
-            "params": {}
-          },
-          "counter": {
-            "method": "put",
-            "href": "https://dan.com/conversations/:token/offer?bid=:bid",
-            "params": {"bid": "integer"}
-          },
-          "accept": {
-            "method": "put",
-            "href": "https://dan.com/conversations/:token/accept",
-            "params": {}
+            "href": "https://dan.com/conversations/:token/choose_domain_transfer_method",
+            "params": {"domain_transfer_method": ["transfer_via_push", "transfer_via_auth_code"]}
           }
         } 
       }
     }
   }
 }
+
+```
+
+### Webhooks:
+
+If the webhook url in the integrator's seller profile is set, every transaction state change will result in a webhook being sent via POST HTTP method.
+
+The payload will consist of an event name represeting the conversation state change, conversation_token adn and metadata.
+
+If a webhook endpoint responds with status code 200, the webhook will be considered as delivered. Otherwise, the system will try again to deliver it in 15 minutes (max 5 retries).
+
+Example:
+
+```json
+{
+  "id": "98d3ade3-c74f-4b4c-9fa5-23f400cd1e3d",
+  "event_type": "domain_name_transferred",
+  "conversation_token": "a7003aa7e2c72d142ef0533dcc232294",
+  "metadata": {}
+}
+```
+
 
 ### Error messages:
 
@@ -836,7 +877,7 @@ wrong_length_must_be_%{count}
 The %{count} means the value assigned to the the error key can be dynamic.
 So for example, when creating an order using ```orders``` endpoint with params: `{price: 50}`, you will encounter a following error response:
 
-```
+```json
 {
  "message": {
    "price": ["must_greater_than_or_equal_to_100"]
