@@ -8,11 +8,11 @@ At DAN.COM  we offer three types of integration through our api.
 - Medium
 - Advanced
 
-With the light version the integrator can setup transactions on behalve of a seller on DAN.COM. In this case the transaction is setup by the integrator where DAN.COM will do payment collection and escrow for that transaction. The integrator will need the sellers `Dan Distribution Network ID`, which the seller can find in their [settings page](htttps://dan.com/users/settings/profile).
+With the light version the integrator can setup transactions on behave of a seller on DAN.COM. In this case the transaction is setup by the integrator where DAN.COM will do payment collection and escrow for that transaction. The integrator will need the sellers `Dan Distribution Network ID`, which the seller can find in their [settings page](htttps://dan.com/users/settings/profile).
 
 With the Medium version the integrator is able to create checkout pages and to integrate our communication pages as embedded pages into the integrators platform.
 
-With the Advanced version the integrator is able use our platform completely via an API without having the buyer or seller see any DAN.COM page (with the exception of the checkout page, so we can do payment collection).
+With the Advanced version the integrator is able use our platform completely via an API without having the buyer or seller see any DAN.COM page (with the exception of the checkout page, so we can do the payment collection).
 
 The integrator can choose which one suits best. As they all have the same endpoint (https://dan.com/api/integrator/v1), but it's up to the integrator how deep the API is used.
 
@@ -78,7 +78,7 @@ Name | Type | Description | Required
 `price` | Integer | The price of the domain | yes
 `currency_code` | String | The currency of the price. At DAN.COM we support the following currencies as the base price: Euro (EUR), Dollar (USD) and British Pound (GBP) | yes
 `domain_name` | String | The name of the domain | yes
-`vat_option` | String | Define if the price is including or excluding vat. When the price is including vat and it appears that the buyer needs to pay vat then the vat is substracted from the price, otherwise it will be added to the price. In this example the price was excluded so the total price the buyer had to pay is the given price plus the vat. The expected values are either: `vat_option_exclude`, `vat_option_include` or `vat_option_do_not_show`. | yes
+`vat_option` | String | Define if the price is including or excluding vat. When the price is including vat and it appears that the buyer needs to pay vat then the vat is subtracted from the price, otherwise it will be added to the price. In this example the price was excluded so the total price the buyer had to pay is the given price plus the vat. The expected values are either: `vat_option_exclude`, `vat_option_include` or `vat_option_do_not_show`. | yes
 `name` | String | The buyer's full name | yes
 `email` | String | The buyer's email | yes
 `phone` | String | The buyer's phone number | yes
@@ -100,29 +100,29 @@ Name | Type | Description | Required
 
 ```json
 {
- "order": {
-  "id":1234,
-  "price":1000.0,
-  "company":null,
-  "status":"pending_payment",
-  "address1":null,
-  "address2":null,
-  "zip":null,
-  "city":null,
-  "country_code":null,
-  "vat_rate":0.0,
-  "vat":0.0,
-  "total":1000.0,
-  "currency_code":"EUR",
-  "vat_option":"vat_option_exclude",
-  "buying_action": "buy_now",
-  "vat_number":null,
-  "token":"29a5f8db",
-  "paid_at":null,
-  "created_at":"2020-07-20T11:41:33.474+02:00",
-  "checkout_url":"https://dan.com/orders/29a5f8db/checkout",
-  "domain_name":"testdomain.com"
- }
+  "order": {
+    "id":1234,
+    "price":1000.0,
+    "company":null,
+    "status":"pending_payment",
+    "address1":null,
+    "address2":null,
+    "zip":null,
+    "city":null,
+    "country_code":null,
+    "vat_rate":0.0,
+    "vat":0.0,
+    "total":1000.0,
+    "currency_code":"EUR",
+    "vat_option":"vat_option_exclude",
+    "buying_action":"buy_now",
+    "vat_number":null,
+    "token":"29a5f8db",
+    "paid_at":null,
+    "created_at":"2020-07-20T11:41:33.474+02:00",
+    "checkout_url":"https://dan.com/orders/29a5f8db/checkout",
+    "domain_name":"testdomain.com"
+  }
 }
 ```
 
@@ -130,32 +130,33 @@ Name | Type | Description | Required
 
 ```json
 {
- "order": {
-  "id":1234,
-  "price":12000.0,
-  "company":null,
-  "status":"pending_payment",
-  "address1":null,
-  "address2":null,
-  "zip":null,
-  "city":null,
-  "country_code":null,
-  "vat_rate":0.0,
-  "vat":0.0,
-  "total":12000.0,
-  "currency_code":"EUR",
-  "vat_option":"vat_option_exclude",
-  "buying_action": "buy_in_installments",
-  "number_of_installments": 60,
-  "installment_total": 200,
-  "vat_number":null,
-  "token":"29a5f8db",
-  "paid_at":null,
-  "created_at":"2020-07-20T11:41:33.474+02:00",
-  "checkout_url":"https://dan.com/orders/29a5f8db/checkout",
-  "domain_name":"testdomain.com"
- }
+  "order": {
+    "id":1234,
+    "price":12000.0,
+    "company":null,
+    "status":"pending_payment",
+    "address1":null,
+    "address2":null,
+    "zip":null,
+    "city":null,
+    "country_code":null,
+    "vat_rate":0.0,
+    "vat":0.0,
+    "total":12000.0,
+    "currency_code":"EUR",
+    "vat_option":"vat_option_exclude",
+    "buying_action":"buy_in_installments",
+    "number_of_installments":60,
+    "installment_total":200,
+    "vat_number":null,
+    "token":"29a5f8db",
+    "paid_at":null,
+    "created_at":"2020-07-20T11:41:33.474+02:00",
+    "checkout_url":"https://dan.com/orders/29a5f8db/checkout",
+    "domain_name":"testdomain.com"
+  }
 }
+
 ```
 
 The checkout url is important as the integrator should communicate that one to the buyer so the buyer is able to pay for the domain
@@ -174,35 +175,34 @@ GET /api/integrator/v1/orders
 
 ```json
 {
- "orders": [
-  {
-   "id":1234,
-   "price":1000.0,
-   "company":null,
-   "status":"pending_payment",
-   "address1":null,
-   "address2":null,
-   "zip":null,
-   "city":null,
-   "country_code":null,
-   "vat_rate":0.0,
-   "vat":0.0,
-   "total":1000.0,
-   "currency_code":"EUR",
-   "vat_option":"vat_option_exclude",
-   "buying_action": "buy_now",
-   "vat_number":null,
-   "token":"29a5f8db",
-   "buying_type"
-   "paid_at":null,
-   "created_at":"2020-07-20T11:41:33.474+02:00",
-   "checkout_url":"https://dan.com/orders/29a5f8db/checkout",
-   "domain_name":"testdomain.com"
-  },
-  {
-   # etc
-  }
- ]
+  "orders": [
+    {
+      "id":1234,
+      "price":1000.0,
+      "company":null,
+      "status":"pending_payment",
+      "address1":null,
+      "address2":null,
+      "zip":null,
+      "city":null,
+      "country_code":null,
+      "vat_rate":0.0,
+      "vat":0.0,
+      "total":1000.0,
+      "currency_code":"EUR",
+      "vat_option":"vat_option_exclude",
+      "buying_action":"buy_now",
+      "vat_number":null,
+      "token":"29a5f8db",
+      "buying_type""paid_at":null,
+      "created_at":"2020-07-20T11:41:33.474+02:00",
+      "checkout_url":"https://dan.com/orders/29a5f8db/checkout",
+      "domain_name":"testdomain.com"
+    },
+    {
+      "# etc"
+    }
+  ]
 }
 ```
 
@@ -226,30 +226,29 @@ Result
 
 ```json
 {
- "order": {
-  "id":1234,
-  "price":1000.0,
-  "company":null,
-  "status":"pending_payment",
-  "address1":null,
-  "address2":null,
-  "zip":null,
-  "city":null,
-  "country_code":null,
-  "vat_rate":0.0,
-  "vat":0.0,
-  "total":1000.0,
-  "currency_code":"EUR",
-  "vat_option":"vat_option_exclude",
-  "buying_action": "buy_now",
-  "vat_number":null,
-  "token":"29a5f8db",
-  "paid_at":null,
-  "created_at":"2020-07-20T11:41:33.474+02:00",
-  "checkout_url":"https://dan.com/orders/29a5f8db/checkout",
-  "domain_name":"testdomain.com"
- }
-}
+  "order": {
+    "id":1234,
+    "price":1000.0,
+    "company":null,
+    "status":"pending_payment",
+    "address1":null,
+    "address2":null,
+    "zip":null,
+    "city":null,
+    "country_code":null,
+    "vat_rate":0.0,
+    "vat":0.0,
+    "total":1000.0,
+    "currency_code":"EUR",
+    "vat_option":"vat_option_exclude",
+    "buying_action":"buy_now",
+    "vat_number":null,
+    "token":"29a5f8db",
+    "paid_at":null,
+    "created_at":"2020-07-20T11:41:33.474+02:00",
+    "checkout_url":"https://dan.com/orders/29a5f8db/checkout",
+    "domain_name":"testdomain.com"
+  }
 ```
 
 
@@ -376,28 +375,29 @@ GET https://dan.com/api/integrator/v1/clients/<id>
 ```
 ```json
 {
- "client": {
-    "id": 1234,
-      "company": "Company name",
-      "address1": "Some street name 1",
-      "address2": "",
-      "zip": "1234 AB",
-      "city": "Amsterdam",
-      "country": "Nederland",
-      "vat_number": "NL212121B01",
-      "registration": "1234",
-      "billing_name": "Billing name",
-      "iban": "IBAN number",
-      "phone": "12345",
-      "client_type": "business" | "individual",
-      "bank_code": "1234",
-      "email": "some@example.com",
-      "first_name": "Some",
-      "last_name": "Name",
-      "currency_code": "USD | GBP | EUR",
-      "dan_distribution_network_id": ":dan_distrubition_network_id"
-    }
+  "client":{
+    "id":1234,
+    "company":"Company name",
+    "address1":"Some street name 1",
+    "address2":"",
+    "zip":"1234 AB",
+    "city":"Amsterdam",
+    "country":"Nederland",
+    "vat_number":"NL212121B01",
+    "registration":"1234",
+    "billing_name":"Billing name",
+    "iban":"IBAN number",
+    "phone":"12345",
+    "client_type":"business""|""individual",
+    "bank_code":"1234",
+    "email":"some@example.com",
+    "first_name":"Some",
+    "last_name":"Name",
+    "currency_code":"USD | GBP | EUR",
+    "dan_distribution_network_id":":dan_distrubition_network_id"
+  }
 }
+
 ```    
 
 ### Updating a client
@@ -406,26 +406,25 @@ PUT https://dan.com/api/integrator/v1/clients/<dan_distribution_network_id>
 ```
 ```
 {
- "client": {
-      "company": "Company name",
-      "address1": "Some street name 1",
-      "address2": "",
-      "zip": "1234 AB",
-      "city": "Amsterdam",
-      "country": "Nederland",
-      "vat_number": "NL212121B01",
-      "registration": "1234",
-      "billing_name": "Billing name",
-      "iban": "IBAN number",
-      "phone": "12345",
-      "client_type": "business" | "individual",
-      "bank_code": "1234",
-      "email": "some@example.com",
-      "first_name": "Some",
-      "last_name": "Name",
-      "currency_code": "USD | GBP | EUR"
-    }
-}
+  "client": {
+    "company":"Company name",
+    "address1":"Some street name 1",
+    "address2":"",
+    "zip":"1234 AB",
+    "city":"Amsterdam",
+    "country":"Nederland",
+    "vat_number":"NL212121B01",
+    "registration":"1234",
+    "billing_name":"Billing name",
+    "iban":"IBAN number",
+    "phone":"12345",
+    "client_type":"business""|""individual",
+    "bank_code":"1234",
+    "email":"some@example.com",
+    "first_name":"Some",
+    "last_name":"Name",
+    "currency_code":"USD | GBP | EUR"
+  
 ```
 
 ### Deleting a client
@@ -599,16 +598,16 @@ An example `curl` command to delete a domain is like this:
 A `200 OK` http response code indicates that the domain has been deleted successfully. In case of any errors, you will receive a `500 Internal server error`.
 
 ## Conversations/Transactions
-To have the negotiation setup our system starts out with a conversation, the moment a conversation reaches the agreement reached status an order will be created which is used for the payment collection.
+To have the negotiation setup our system starts out with a conversation, the moment an agreement is reached the conversation will get an "agreement_reached" status and order will be created which is used for the payment collection.
 
-### available_actions
+### links
 
-It loosely follows HATEOAS pattern: https://en.wikipedia.org/wiki/HATEOAS and lists all the available actions (either for saller or buyer) at a certain conversation/transaction state.
-The structure of ```available_actions``` is following:
+It loosely follows HATEOAS pattern: [https://en.wikipedia.org/wiki/HATEOAS]() and lists all the available actions (either for saller or buyer) at a certain conversation/transaction state.
+The structure of ```links``` is following:
 
 ```json
 {
-  "available_actions": {
+  "links": {
     "buyer_actions": {
       "ACTION_NAME": {
         "method": "HTTP_METHOD",
@@ -627,11 +626,11 @@ The structure of ```available_actions``` is following:
 
 #### Params definitions
 
-The ```params_defintions``` key contains information about the parameter names and their data types, for example:
+The ```params``` key contains information about the parameter names and their data types, for example:
 
 ```
   bid: "integer" - it means that the system expects a bid parameter of a type integer
-  domain_transfer_method: ["transfer_via_push", "transfer_via_auth_code"] - the systeintem expects one of the values listed within the array (mutually exclusive)
+  domain_transfer_method: ["transfer_via_push", "transfer_via_auth_code"] - the system expects one of the values listed within the array (mutually exclusive)
   
 ```
 
@@ -709,59 +708,71 @@ POST https://dan.com/api/integrator/v1/conversations
 
 ```json
 {
-  "conversation": {
-      "id": 12,
-      "client_id": 1234,
-      "domain_name": "example.com",
-      "name": "Buyer name",
-      "phone": "Buyer phone",
-      "email": "Buyer email",
-      "buyer_type": "individual",
-      "last_bid": "1000",
-      "company_name": "",
-      "currency": "USD | GBP | EUR",
-      "token": ":token",
-      "conversation_state": "counter_offer",
-      "vat_option": "vat_option_include | vat_option_exclude",
-      "embedded_seller_url": "https://dan.com/integrator/conversations/:token",
-      "embedded_buyer_url": "https://dan.com/conversations/:token",
-      "links": {
-        "buyer_actions": {
-          "reject": {
-            "method": "put",
-            "href": "https://dan.com/conversations/:token/reject",
-            "params": {},
-          },
-          "offer": {
-            "method": "put",
-            "href": "https://dan.com/conversations/:token/offer",
-            "params": {"bid": "integer"}
-          },
-          "accept": {
-            "method": "put",
-            "href": "https://dan.com/conversations/:token/accept",
-            "params": {}
+  "conversation":{
+    "id":12,
+    "client_id":1234,
+    "domain_name":"example.com",
+    "name":"Buyer name",
+    "phone":"Buyer phone",
+    "email":"Buyer email",
+    "buyer_type":"individual",
+    "last_bid":"1000",
+    "company_name":"",
+    "currency":"USD | GBP | EUR",
+    "token":":token",
+    "conversation_state":"counter_offer",
+    "vat_option":"vat_option_include | vat_option_exclude",
+    "embedded_seller_url":"https://dan.com/integrator/conversations/:token",
+    "embedded_buyer_url":"https://dan.com/conversations/:token",
+    "links":{
+      "buyer_actions":{
+        "reject":{
+          "method":"put",
+          "href":"https://dan.com/conversations/:token/reject",
+          "params":{
+            
           }
         },
-        "seller_actions": {
-          "revoke": {
-            "method": "put",
-            "href": "https://dan.com/conversations/:token/revoke",
-            "params": {}
-          },
-          "counter": {
-            "method": "put",
-            "href": "https://dan.com/conversations/:token/offer?",
-            "params": {"bid": "integer"}
-          },
-          "accept": {
-            "method": "put",
-            "href": "https://dan.com/conversations/:token/accept",
-            "params": {}
+        "offer":{
+          "method":"put",
+          "href":"https://dan.com/conversations/:token/offer",
+          "params":{
+            "bid":"integer"
           }
-        } 
+        },
+        "accept":{
+          "method":"put",
+          "href":"https://dan.com/conversations/:token/accept",
+          "params":{
+            
+          }
+        }
+      },
+      "seller_actions":{
+        "revoke":{
+          "method":"put",
+          "href":"https://dan.com/conversations/:token/revoke",
+          "params":{
+            
+          }
+        },
+        "counter":{
+          "method":"put",
+          "href":"https://dan.com/conversations/:token/offer?",
+          "params":{
+            "bid":"integer"
+          }
+        },
+        "accept":{
+          "method":"put",
+          "href":"https://dan.com/conversations/:token/accept",
+          "params":{
+            
+          }
+        }
       }
     }
+  }
 }
 
 ```
@@ -776,63 +787,53 @@ GET https://dan.com/api/integrator/v1/conversations/<id>
 ```json
 {
   "conversation": {
-    "id": 12,
-    "client_id": 1234,
-    "domain_name": "example.com",
-    "name": "Buyer name",
-    "phone": "Buyer phone",
-    "email": "Buyer email",
-    "buyer_type": "individual",
-    "last_bid": "1000",
-    "company_name": "",
-    "currency": "USD | GBP | EUR",
-    "token": ":token",
-    "conversation_state": "domain_transfer_initiated",
-    "vat_option": "vat_option_include | vat_option_exclude",
-    "embedded_seller_url": "https://dan.com/integrator/conversations/:token",
-    "embedded_buyer_url": "https://dan.com/conversations/:token",
-    "available_actions": {
-      "id": 12,
-      "client_id": 1234,
-      "domain_name": "example.com",
-      "name": "Buyer name",
-      "phone": "Buyer phone",
-      "email": "Buyer email",
-      "buyer_type": "individual",
-      "last_bid": "1000",
-      "company_name": "",
-      "currency": "USD | GBP | EUR",
-      "token": ":token",
-      "vat_option": "vat_option_include | vat_option_exclude",
-      "embedded_seller_url": "https://dan.com/integrator/conversations/:token",
-      "embedded_buyer_url": "https://dan.com/conversations/:token",
-      "links": {
-        "buyer_actions": {
-          "message": {
-            "method": "post",
-            "href": "https://dan.com/conversations/:token/message",
-            "params": {"description": "string"}
+    "id":12,
+    "client_id":1234,
+    "domain_name":"example.com",
+    "name":"Buyer name",
+    "phone":"Buyer phone",
+    "email":"Buyer email",
+    "buyer_type":"individual",
+    "last_bid":"1000",
+    "company_name":"",
+    "currency":"USD | GBP | EUR",
+    "token":":token",
+    "conversation_state":"domain_transfer_initiated",
+    "vat_option":"vat_option_include | vat_option_exclude",
+    "embedded_seller_url":"https://dan.com/integrator/conversations/:token",
+    "embedded_buyer_url":"https://dan.com/conversations/:token",
+    "links":{
+      "buyer_actions":{
+        "message":{
+          "method":"post",
+          "href":"https://dan.com/conversations/:token/message",
+          "params":{
+            "description":"string"
           }
-        },
-        "seller_actions": {
-          "choose_domain_transfer_method": {
-            "method": "put",
-            "href": "https://dan.com/conversations/:token/choose_domain_transfer_method",
-            "params": {"domain_transfer_method": ["transfer_via_push", "transfer_via_auth_code"]}
+        }
+      },
+      "seller_actions":{
+        "choose_domain_transfer_method":{
+          "method":"put",
+          "href":"https://dan.com/conversations/:token/choose_domain_transfer_method",
+          "params":{
+            "domain_transfer_method":[
+              "transfer_via_push",
+              "transfer_via_auth_code"
+            ]
           }
-        } 
+        }
       }
     }
   }
 }
-
 ```
 
 ### Webhooks:
 
 If the webhook url in the integrator's seller profile is set, every transaction state change will result in a webhook being sent via POST HTTP method.
 
-The payload will consist of an event name represeting the conversation state change, conversation_token adn and metadata.
+The payload will consist of an event name representing the conversation state change, conversation_token and and metadata.
 
 If a webhook endpoint responds with status code 200, the webhook will be considered as delivered. Otherwise, the system will try again to deliver it in 15 minutes (max 5 retries).
 
