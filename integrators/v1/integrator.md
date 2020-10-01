@@ -758,7 +758,7 @@ POST https://dan.com/api/integrator/v1/conversations
         },
         "counter":{
           "method":"put",
-          "href":"https://dan.com/conversations/:token/offer?",
+          "href":"https://dan.com/conversations/:token/offer",
           "params":{
             "bid":"integer"
           }
