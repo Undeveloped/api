@@ -871,7 +871,7 @@ auth_code_sent (when we sent an authcode to a buyer):
 submit_auth_code (when a seller submits an authcode):
 {"user_email":"dan@example.com","seller_dan_distribution_network_id":"ba09c1f07da70c868d92ea864f87925a","message_type":"domainer","domain_id":2941,"domain_name":"exampledomain.com","conversation_token":"eaf3d3cd2b3d37241a52bc9d23a67f2a","auth_code":"1231231","request_id":"60bfa93b-1add-46ef-9b05-df4679f2c06f","event_type":"submit_auth_code","utc_timestamp":1607684400}
 installment_will_be_charged (announcment, that an installment payment will be charged soon):
-{"seller_dan_distribution_network_id":"5b8daf28cd748f01d96250587b7c5961","installment":2,"order_id":820,"conversation_token":"24ac0bfacf5e2273e794575737ae114c","request_id":"a18550e6-b71d-43a1-bd51-7f920dfc9528","event_type":"installment_will_be_charged","utc_timestamp":1606730400}
+{"seller_dan_distribution_network_id":"244ec8ba8992ddbf66d446531f6df9da","installment":2,"order_id":1482,"conversation_token":"20d56c77d5f3e1f9b314c1c4115ad7bb","date":1606950000,"request_id":"e0d6d63f-c1d0-4ba5-8332-db9c2b6b234f","event_type":"installment_will_be_charged","utc_timestamp":1606730400}
 installment_payment_failure (error message baing a result of a installment payment failure):
 {"seller_dan_distribution_network_id":"5b8daf28cd748f01d96250587b7c5961","installment":2,"order_id":820,"conversation_token":"24ac0bfacf5e2273e794575737ae114c","request_id":"9a68c02c-97ba-4d52-8a4c-6a2e82393fb3","event_type":"installment_payment_failure","utc_timestamp":1607166000}
 installment_payment_reminder:
