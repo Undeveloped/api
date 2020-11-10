@@ -266,9 +266,21 @@ Action | VERB | URL
 --- | --- | ---
 Creating a client | POST | https://dan.com/api/integrator/v1/clients
 Listing all your clients | GET | https://dan.com/api/integrator/v1/clients/
-Showing a client | GET | https://dan.com/api/integrator/v1/clients/<**id**>
-Updating a client | PUT | https://dan.com/api/integrator/v1/clients/<**id**>
-Deleting a client | DELETE | https://dan.com/api/integrator/v1/clients/<**id**>
+Showing a client | GET | https://dan.com/api/integrator/v1/clients/<**client_integrator_token**>
+Updating a client | PUT | https://dan.com/api/integrator/v1/clients/<**client_integrator_token**>
+Deleting a client | DELETE | https://dan.com/api/integrator/v1/clients/<**client_integrator_token**>
+
+## Bank accounts
+Action | VERB | URL
+--- | --- | ---
+Updating a client's bank account | PUT | https://dan.com/api/integrator/v1/clients/<**client_integrator_token**>/bank_accounts/<**id**>
+Creating a client's bank account | PUT | https://dan.com/api/integrator/v1/clients/<**client_integrator_token**>/bank_accounts
+
+## Paypal accounts
+Action | VERB | URL
+--- | --- | ---
+Updating a client's bank account | PUT | https://dan.com/api/integrator/v1/clients/<**client_integrator_token**>/paypal_accounts/<**id**>
+Creating a client's bank account | PUT | https://dan.com/api/integrator/v1/clients/<**client_integrator_token**>/paypal_accounts
 
 ### Domains 
 Action | VERB | URL
@@ -321,11 +333,13 @@ POST https://dan.com/api/integrator/v1/clients
    "iban": "IBAN number",
    "phone": "12345",
    "client_type": "business" | "individual",
-   "bank_code": "1234",
    "email": "some@example.com",
    "first_name": "Some",
    "last_name": "Name",
    "currency_code": "USD | GBP | EUR",
+   "payout_method": "payout_through_bank_transfer" | "payout_through_paypal"
+   "bank_accounts": [<bank_account>],
+   "paypal_accounts": [<paypal_account>],
    "dan_distribution_network_id": ":dan_distrubition_network_id"
   }
 }
@@ -361,6 +375,9 @@ GET /api/integrator/v1/clients/
       "first_name": "Some",
       "last_name": "Name",
       "currency_code": "USD | GBP | EUR",
+      "payout_method": "payout_through_bank_transfer" | "payout_through_paypal"
+      "bank_accounts": [<bank_account>],
+      "paypal_accounts": [<paypal_account>],
       "dan_distribution_network_id": ":dan_distrubition_network_id"
     },
   ]
@@ -394,6 +411,9 @@ GET https://dan.com/api/integrator/v1/clients/<id>
     "first_name":"Some",
     "last_name":"Name",
     "currency_code":"USD | GBP | EUR",
+    "payout_method": "payout_through_bank_transfer" | "payout_through_paypal"
+    "bank_accounts": [<bank_account>],
+    "paypal_accounts": [<paypal_account>],
     "dan_distribution_network_id":":dan_distrubition_network_id"
   }
 }
@@ -423,6 +443,9 @@ PUT https://dan.com/api/integrator/v1/clients/<dan_distribution_network_id>
     "email":"some@example.com",
     "first_name":"Some",
     "last_name":"Name",
+    "bank_accounts": [<bank_account>],
+    "paypal_accounts": [<paypal_account>],
+    "payout_method": "payout_through_bank_transfer" | "payout_through_paypal"
     "currency_code":"USD | GBP | EUR"
   
 ```
@@ -432,8 +455,123 @@ PUT https://dan.com/api/integrator/v1/clients/<dan_distribution_network_id>
 ```
 DELETE https://dan.com/api/integrator/v1/clients/<id>
 ```
+
+## Bank Accounts
+
+##### Attributes
+
+Name | Type | Description | Required
+--- | --- | --- | ---
+`client_integrator_token` | String | The token that the client copied from dan.com into your system | yes
+`bank_code` | String | BIC/SWIFT number  | yes
+`region` | String | Bank region. Allowed values: `sepa`, `usa`, `rest_of_world` | yes
+`account_holder` | Integer | Bank account holder name | yes
+`bank_name` | String | Bank name | yes
+`account_number` | String | Account number. if `region == 'sepa'`, IBAN format is required. | yes
+`address` | String | Bank address | only if `region == 'usa'`
+`zip` | String | Bank zip code | only if `region == 'usa'`
+`city` | String | Bank city | only if `region == 'usa'`
+`routing_number` | String | Bank's routing number. | only if `region == 'usa'`
+
+### Creating a bank account
+
+For now, we allow only 1 bank account per client.
+
+```
+POST /api/integrator/v1/clients/<client_integrator_token>/bank_accounts
+```
+
+
+```json
+{
+  {
+   "bank_account": {
+      "region":"usa",
+      "bank_name":"Citi Bank",
+      "id":47953,
+      "bank_code":"CITIUS3PPBX",
+      "account_number":"10000010043310123",
+      "routing_number":"21000089",
+      "address":"11 Wall Street",
+      "city":"New York",
+      "zip":"10013",
+      "account_holder":"John Smith"
+   }
+}
+```
+
+### Updating a bank account
+
+For now, we allow only 1 bank account per client.
+
+```
+PUT /api/integrator/v1/clients/<client_integrator_token>/bank_accounts/<id>
+```
+
+
+```json
+{
+  {
+   "bank_account": {
+      "region":"usa",
+      "bank_name":"Citi Bank",
+      "id":47953,
+      "bank_code":"CITIUS3PPBX",
+      "account_number":"10000010043310123",
+      "routing_number":"21000089",
+      "address":"11 Wall Street",
+      "city":"New York",
+      "zip":"10013",
+      "account_holder":"John Smith"
+   }
+}
+```
+
+## Paypal Accounts
+
+##### Attributes
+
+Name | Type | Description | Required
+--- | --- | --- | ---
+`client_integrator_token` | String | The token that the client copied from dan.com into your system | yes
+`email` | String | Paypal email  | yes
+
+### Creating a Paypal account
+
+For now, we allow only 1 bank account per client.
+
+```
+POST /api/integrator/v1/clients/<client_integrator_token>/paypal_accounts
+```
+
+```json
+{
+  {
+   "paypal_account": {
+      "email":"example@example.com",
+   }
+}
+```
+
+### Updating a bank account
+
+For now, we allow only 1 bank account per client.
+
+```
+PUT /api/integrator/v1/clients/<client_integrator_token>/paypal_accounts/<id>
+```
+
+```json
+{
+  {
+   "paypal_account": {
+      "email":"example@example.com",
+   }
+}
+```
+
     
-##Domains
+### Domains
 
 ### Listing all domains
 ```
