@@ -546,7 +546,6 @@ POST /api/integrator/v1/clients/<client_integrator_token>/paypal_accounts
 
 ```json
 {
-  {
    "paypal_account": {
       "email":"example@example.com",
    }
@@ -563,7 +562,6 @@ PUT /api/integrator/v1/clients/<client_integrator_token>/paypal_accounts/<id>
 
 ```json
 {
-  {
    "paypal_account": {
       "email":"example@example.com",
    }
