@@ -1,4 +1,4 @@
-# Integration API - V1 - ALPHA 0.1
+# Integration API - V1 - Version 1.0
 
 Note: this is a draft document that is open to suggestions and is bound to change.
 
@@ -121,7 +121,7 @@ Name | Type | Description | Required
     "paid_at":null,
     "created_at":"2020-07-20T11:41:33.474+02:00",
     "checkout_url":"https://dan.com/orders/29a5f8db/checkout",
-    "domain_name":"testdomain.com"
+    "domain_name":"testdomain.com",
   }
 }
 ```
@@ -153,7 +153,9 @@ Name | Type | Description | Required
     "paid_at":null,
     "created_at":"2020-07-20T11:41:33.474+02:00",
     "checkout_url":"https://dan.com/orders/29a5f8db/checkout",
-    "domain_name":"testdomain.com"
+    "domain_name":"testdomain.com",
+    "number_of_installments": 12,
+    "next_installment_due_at": "2020-11-20T00:00:00.000+02:00"
   }
 }
 
@@ -782,7 +784,7 @@ POST https://dan.com/api/integrator/v1/conversations
 GET https://dan.com/api/integrator/v1/conversations/<id>
 ```
 
-#### Conversation in "domain_transfer_initiated" state
+#### Conversation in "payment_received" state
 
 ```json
 {
@@ -815,13 +817,8 @@ GET https://dan.com/api/integrator/v1/conversations/<id>
       "seller_actions":{
         "choose_domain_transfer_method":{
           "method":"put",
-          "href":"https://dan.com/conversations/:token/choose_domain_transfer_method",
-          "params":{
-            "domain_transfer_method":[
-              "transfer_via_push",
-              "transfer_via_auth_code"
-            ]
-          }
+          "href":"https://dan.com/conversations/:token/choose_domain_transfer",
+          "params":{}
         }
       }
     }
