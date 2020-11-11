@@ -1,4 +1,4 @@
-# Integration API - V1 - Version 1.0
+# Domain Transaction Engine API - V1 - Version 1.0
 
 Note: this is a draft document that is open to suggestions and is bound to change.
 
