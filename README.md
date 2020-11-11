@@ -4,4 +4,4 @@
 
 [Domain API](dan_seller_api/domain_pool.md)
 
-[Domain Transaction Engine API V1](domain_transaction_engine/v1/integration.md)
+[Domain Transaction Engine API V1](domain_transaction_engine/v1/README.md)
