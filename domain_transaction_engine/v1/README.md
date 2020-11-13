@@ -1,22 +1,47 @@
-# Domain Transaction Engine API - V1 - Version 1.0
+# Domain Transaction Engine API - V1 - Version 1.0.2
 
-Note: this is a draft document that is open to suggestions and is bound to change.
+The DAN Domain Transaction API is designed specifically for registrars, domain marketplaces & other services in the domain industry that handle domain ownership transfers from one owner to another.
 
-At DAN.COM  we offer three types of integration through our api.
+One of the big users and the main developer of this API is DAN.COM, which is a domain marketplace that handles over 30,000 domain ownership transfers a year.
 
-- Light
-- Medium
-- Advanced
+Regardless of the size of your company or product team, we’ve got you covered.
 
-With the light version the integrator can setup transactions on behalf of a seller on DAN.COM. In this case the transaction is setup by the integrator where DAN.COM will do payment collection and escrow for that transaction. The integrator will need the sellers `Dan Distribution Network ID`, which the seller can find in their [settings page](htttps://dan.com/users/settings/profile).
+Implementing our API is simple and straightforward. Before you proceed, first determine which integration type works best for you.
 
-With the Medium version the integrator is able to create checkout pages and to integrate our communication pages as embedded pages into the integrators platform.
+We offer three types of integration:
 
-With the Advanced version the integrator is able use our platform completely via an API without having the buyer or seller see any DAN.COM page (with the exception of the checkout page, so we can do the payment collection).
+* Lightweight (Best option for Small companies)
+* Medium (Best for Medium sized companies)
+* Advanced (Best for Enterprise users that handle +$10M in Yearly sales)
 
-The integrator can choose which one suits best. As they all have the same endpoint (https://dan.com/api/integrator/v1), but it's up to the integrator how deep the API is used.
+**The big differences between the integration types that we offer:**
 
-For example: The light integrator will only use the Orders endpoint. The medium integrator will use the Orders and Conversations endpoint, combined with embedded pages. And the Advanced Integrator will use all endpoints to completely integrate our API.
+**Lightweight Integration Option:**
+
+With the lightweight integration you can create transactions on behalf of a DAN.COM seller. This means that the seller in question has to have a DAN.COM account.
+
+In this situation the transaction is created by the integrator (you) and DAN.COM will handle the entire transaction from A to Z for your buyers and sellers. The integrator will need the sellers `Dan Distribution Network ID`, which the seller can find in their settings page.
+
+This model works best for integrators that want to dedicate as little as possible time on development.
+
+**Medium Integration Option (includes Embedable pages)**:
+
+Important note: this integration type is not yet production ready!
+With our Medium integration version, you can create checkout pages but also integrate our communication pages as embedded pages into your own platform. This allows you to use our optimized pages which will be updated frequently so you can focus on growing your business while we take care of most of the tech involved to handle a transaction for you.
+
+**Advanced Integration Option:**
+
+This integration type works best for Enterprises that want to leverage the advantages of using our transactional engine while keeping your customers in your own customer journey. 
+This integration option provides ultimate freedom of implementation for the integrator. You can even use your own PSP in this model. 
+Once we’ve defined your integration scope, we will co-create a tailored approach for you and provide hands-on support to make sure you can initiate and complete the integration as easily and efficiently as possible.
+**Contact our support team to start an Advanced Integration of our API.**
+
+-------
+Moving on. As an integrator you can choose which integration option suits you best. All options have the same endpoint (https://dan.com/api/integrator/v1), but it's up to the integrator how you use the API to accomplish your goals & objectives.
+For example: The lightweight option will only use the Orders endpoint. The Medium option will use the Orders and Conversations endpoint, combined with embedded pages. And lastly, the Advanced option will use all endpoints relevant.
+
+
+
 
 ## Sign up
 To get access to the API the integrator needs to create a [new account](https://dan.com/users/signup) at DAN.COM.
