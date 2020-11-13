@@ -77,7 +77,7 @@ For example, if you are using `curl` you can authorize your request like this:
 If you don't provide an auth token, or your auth token is incorrect, you will receive a `401 Unauthorized` response.
 Please note that the authorization token that is generated is valid for 24 hours, so it's best to not save this token but to generate a new one when setting up a session.
 
-## API Endpoint (light)
+## API Endpoint (lightweight)
 Action | VERB | URL
 --- | --- | ---
 Creating an order | POST | https://dan.com/api/integrator/v1/orders
