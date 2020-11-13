@@ -44,8 +44,9 @@ For example: The lightweight option will only use the Orders endpoint. The Mediu
 
 
 ## Sign up
-To get access to the API the integrator needs to create a [new account](https://dan.com/users/signup) at DAN.COM.
-When all company and payout details are set you can contact support so we'll be able to upgrade that account into an integrator account.
+
+To get access to the API the integrator needs to create a new account at DAN.COM. When you have saved your company and payout details are set, you can contact our support team so we'll be able to upgrade that account into an integrator account.
+From this account you can track your revenue, set your own commission rate and more.
 
 ## Authorization
 In order to use the API, you need your `Integrator API Token` to generate an expiring authorization token (auth_token).
