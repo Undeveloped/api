@@ -306,8 +306,8 @@ Creating a client's bank account | PUT | https://dan.com/api/integrator/v1/clien
 ## Paypal accounts
 Action | VERB | URL
 --- | --- | ---
-Updating a client's bank account | PUT | https://dan.com/api/integrator/v1/clients/<**client_integrator_token**>/paypal_accounts/<**id**>
-Creating a client's bank account | PUT | https://dan.com/api/integrator/v1/clients/<**client_integrator_token**>/paypal_accounts
+Updating a client's paypal account | PUT | https://dan.com/api/integrator/v1/clients/<**client_integrator_token**>/paypal_accounts/<**id**>
+Creating a client's paypal account | PUT | https://dan.com/api/integrator/v1/clients/<**client_integrator_token**>/paypal_accounts
 
 ### Domains 
 Action | VERB | URL
