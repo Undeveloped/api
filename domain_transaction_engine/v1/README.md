@@ -1,4 +1,4 @@
-# Domain Transaction Engine API - V1 - Version 1.0.2
+# DAN Domain Transaction API - V1.02
 
 The DAN Domain Transaction API is designed specifically for registrars, domain marketplaces & other services in the domain industry that handle domain ownership transfers from one owner to another.
 
