@@ -39,7 +39,6 @@ The biggest benefit of using this integration option is that you can use our hig
 This integration type works best for Enterprises that want to leverage the advantages of using our transactional engine while keeping your customers in your own customer journey. 
 This integration option provides ultimate freedom of implementation for the integrator. You can even use your own PSP in this model. 
 Once we’ve defined your integration scope, we will co-create a tailored approach for you and provide hands-on support to make sure you can initiate and complete the integration as easily and efficiently as possible.
-**Contact our support team to start an Advanced Integration of our API.**
 
 -------
 Moving on. As an integrator you can choose which integration option suits you best. All options have the same endpoint (https://dan.com/api/integrator/v1), but it's up to the integrator how you use the API to accomplish your goals & objectives.
