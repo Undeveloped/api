@@ -1079,7 +1079,7 @@ must_be_blank
 too_long_max_%{count}
 too_short_min_%{count}
 wrong_length_must_be_%{count}
-too_many_installments: maximum_no_of_installments_for_this_domain_is_%{max}
+maximum_no_of_installments_for_this_domain_is_%{count}
 must_be_https
 ```
 
