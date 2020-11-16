@@ -42,6 +42,7 @@ Once we’ve defined your integration scope, we will co-create a tailored approa
 
 -------
 Moving on. As an integrator you can choose which integration option suits you best. All options have the same endpoint (https://dan.com/api/integrator/v1), but it's up to the integrator how you use the API to accomplish your goals & objectives.
+
 For example: The lightweight option will only use the Orders endpoint. The Medium option will use the Orders and Conversations endpoint, combined with embedded pages. And lastly, the Advanced option will use all endpoints relevant.
 
 
