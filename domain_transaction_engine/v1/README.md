@@ -12,22 +12,27 @@ We offer three types of integration:
 
 * Lightweight (Best option for Small companies)
 * Medium (Best for Medium sized companies)
-* Advanced (Best for Enterprise users that handle +$10M in Yearly sales)
+* Advanced (Best for Enterprises that handle +$10M in domain sales)
 
 **The big differences between the integration types that we offer:**
 
 **Lightweight Integration Option:**
 
-With the lightweight integration you can create transactions on behalf of a DAN.COM seller. This means that the seller in question has to have a DAN.COM account.
+With the lightweight integration you can create transactions on behalf of a DAN.COM seller. This means that the seller in question has to have a DAN.COM account. The other two integration options do not have this specific requirement.
 
-In this situation the transaction is created by the integrator (you) and DAN.COM will handle the entire transaction from A to Z for your buyers and sellers. The integrator will need the sellers `Dan Distribution Network ID`, which the seller can find in their settings page.
+In this situation the transaction is created by the integrator (you) and DAN.COM will handle the entire transaction from A to Z for your buyers and sellers. The integrator will need the sellers Dan Distribution Network ID, which the seller can find in their DAN.COM settings page.
 
 This model works best for integrators that want to dedicate as little as possible time on development.
 
 **Medium Integration Option (includes Embedable pages)**:
 
-Important note: this integration type is not yet production ready!
-With our Medium integration version, you can create checkout pages but also integrate our communication pages as embedded pages into your own platform. This allows you to use our optimized pages which will be updated frequently so you can focus on growing your business while we take care of most of the tech involved to handle a transaction for you.
+**Important note: this integration type is not yet production ready!**
+
+With our Medium integration option, you can create checkout pages but also integrate our communication pages as embedded pages into your own platform. By going in this route, you can spend significantly less time on development.
+
+We’ve created modern embeddable pages with your own logo and brand incorporated to offer the element(s) in your own style. As integrator you can add your own stylesheet via your integrator account.
+
+The biggest benefit of using this integration option is that you can use our highly optimized conversion and communication pages which will be updated frequently. You focus on growing your business while we take care of most of the tech & product involved to handle swift and efficient transactions for you and your users.
 
 **Advanced Integration Option:**
 
