@@ -107,7 +107,7 @@ Name | Type | Description | Required
 --- | --- | --- | ---
 `client_integrator_token` | String | The token that the client copied from dan.com into your system | yes
 `price` | Integer | The price of the domain | yes
-`currency_code` | String | The currency of the price. At DAN.COM we support the following currencies as the base price: Euro (EUR), Dollar (USD) and British Pound (GBP) | yes
+`currency_code` | String | The currency of the price. We support the following currencies: Euro (EUR), Dollar (USD) and British Pound (GBP). | yes
 `domain_name` | String | The name of the domain | yes
 `vat_option` | String | Define if the price is including or excluding vat. When the price is including vat and it appears that the buyer needs to pay vat then the vat is subtracted from the price, otherwise it will be added to the price. In this example the price was excluded so the total price the buyer had to pay is the given price plus the vat. The expected values are either: `vat_option_exclude`, `vat_option_include` or `vat_option_do_not_show`. | yes
 `name` | String | The buyer's full name | yes
