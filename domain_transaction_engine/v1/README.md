@@ -110,7 +110,8 @@ Name | Type | Description | Required
 `currency_code` | String | The currency of the price. We support the following currencies: Euro (EUR), Dollar (USD) and British Pound (GBP). | yes
 `domain_name` | String | The name of the domain | yes
 `vat_option` | String | Define if the price is including or excluding vat. When the price is including vat and it appears that the buyer needs to pay vat then the vat is subtracted from the price, otherwise it will be added to the price. In this example the price was excluded so the total price the buyer had to pay is the given price plus the vat. The expected values are either: `vat_option_exclude`, `vat_option_include` or `vat_option_do_not_show`. | yes
-`name` | String | The buyer's full name | yes
+`first_name` | String | The buyer's first name | yes
+`last_name` | String | The buyer's last name | yes
 `email` | String | The buyer's email | yes
 `phone` | String | The buyer's phone number | yes
 `country_code` | String | ALPHA-2 country code of the buyer. | no
@@ -227,7 +228,7 @@ GET /api/integrator/v1/orders
       "buying_action":"buy_now",
       "vat_number":null,
       "token":"29a5f8db",
-      "buying_type""paid_at":null,
+      "paid_at":null,
       "created_at":"2020-07-20T11:41:33.474+02:00",
       "checkout_url":"https://dan.com/orders/29a5f8db/checkout",
       "domain_name":"testdomain.com"
@@ -346,6 +347,9 @@ When the client already exists on our DAN.COM and you have the DAN Distribution 
 
 
 ## Clients
+
+Clients represent the DAN,com sellers the integrators can perform actions on behalf of. Every resource of a `client` type has a property `dan_distribution_network_id` which is required to perform an action on behalf of a particilar seller.
+
 ### Creating a client
 ```
 POST https://dan.com/api/integrator/v1/clients
