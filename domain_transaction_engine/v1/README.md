@@ -122,7 +122,7 @@ Name | Type | Description | Required
 `state` | String | The US state of the buyer, in Two-Letter State Abbreviations format. | only if `country_code == "US"`
 `buyer_type` | String | Buyer type. `individual` or `business`. | no
 `buying_action` | String | A buyer action. The expected values are either: `buy_now` or `buy_in_installments`. The default value is `buy_now` | no
-`number_of_installments` | Integer | Number of installments. The value must be between `2` and `60` | only if `buying_action == "buy_in_installments"`. Please keep in mind, domain's `price/number_of_installments` has to be greated or equal to 99 EUR/USD/GBP. Otherwise, the api will throw an error.
+`number_of_installments` | Integer | Number of installments. The value must be between `2` and `60` | only if `buying_action == "buy_in_installments"`. Please keep in mind, domain's `price/number_of_installments` has to be greated or equal to 99 EUR/USD/GBP.
 `vat_number` | String | VAT number of the buyer | only if `buyer_type == "business"` AND the country_code represents an EU country.
 
 ##### Result
