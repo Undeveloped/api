@@ -1079,6 +1079,8 @@ must_be_blank
 too_long_max_%{count}
 too_short_min_%{count}
 wrong_length_must_be_%{count}
+too_many_installments: maximum_no_of_installments_for_this_domain_is_%{max}
+must_be_https
 ```
 
 The %{count} means the value assigned to the the error key can be dynamic.
