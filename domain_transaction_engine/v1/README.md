@@ -773,6 +773,21 @@ A `200 OK` http response code indicates that the domain has been deleted success
 ## Conversations/Transactions
 To have the negotiation setup our system starts out with a conversation, the moment an agreement is reached the conversation will get an "agreement_reached" status and order will be created which is used for the payment collection.
 
+In order to initiate a conversatioe (make an offer for a domain), you need to create a conversation via POST request to `/api/v1/integrator/conversations` endpoint as described below.
+
+##### Attributes
+
+Name | Type | Description | Required
+--- | --- | --- | ---
+`client_integrator_token` | String | The token that the client copied from dan.com into your system | yes
+`bid` | Integer | The initial offer bid | yes
+`currency_code` | String | The currency of the price. We support the following currencies: Euro (EUR), Dollar (USD) and British Pound (GBP). | yes
+`domain_name` | String | The name of the domain | yes
+`first_name` | String | The buyer's first name | yes
+`last_name` | String | The buyer's last name | yes
+`email` | String | The buyer's email | yes
+`phone` | String | The buyer's phone number | yes
+
 ### links
 
 It loosely follows HATEOAS pattern: [https://en.wikipedia.org/wiki/HATEOAS]() and lists all the available actions (either for saller or buyer) at a certain conversation/transaction state.
