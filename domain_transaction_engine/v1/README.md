@@ -575,7 +575,7 @@ Name | Type | Description | Required
 
 ### Creating a Paypal account
 
-For now, we allow only 1 bank account per client.
+For now, we allow only 1 paypal account per client.
 
 ```
 POST /api/integrator/v1/clients/<client_integrator_token>/paypal_accounts
@@ -589,9 +589,9 @@ POST /api/integrator/v1/clients/<client_integrator_token>/paypal_accounts
 }
 ```
 
-### Updating a bank account
+### Updating a Paypal account
 
-For now, we allow only 1 bank account per client.
+For now, we allow only 1 paypal account per client.
 
 ```
 PUT /api/integrator/v1/clients/<client_integrator_token>/paypal_accounts/<id>
