@@ -45,30 +45,6 @@ Moving on. As an integrator you can choose which integration option suits you be
 
 For example: The lightweight option will only use the Orders endpoint. The Medium option will use the Orders and Conversations endpoint, combined with embedded pages. And lastly, the Advanced option will use all endpoints relevant.
 
-## Sandbox
-
-Sandbox environment is accessible under `sandbox.dan.com` host. You can find your sandox `Integrator API Token` in in your [settings page](https://dan.com/users/settings/profile), in the section "Integrator". Apart from the actions described below, it provides an option to put
-a tranaction in a certain state via HTTP endpoints:
-
-In order to mark a transaction's payment as received:
-```
-PUT /api/integrator/v1/conversations/:conversation_token/payment_received
-```
-It takes an optional `installment_number` argument, which defines which installment you want to mark as paid (applicable only to `lease_to_own` orders).
-
-In order to mark a transaction as cancelled one:
-```
-PUT /api/integrator/v1/conversations/:conversation_token/transaction_cancelled
-```
-In order to to set a transaction into a state where the buyer receives an instructions how to receive a domain:
-```
-PUT /api/integrator/v1/conversations/:conversation_token/account_change_initiated
-```
-In order to mark a domain as transferred:
-```
-PUT /api/integrator/v1/conversations/:conversation_token/domain_transferred
-```
-
 ## Sign up
 
 To get access to the API the integrator needs to create a new account at DAN.COM. When you have saved your company and payout details are set, you can contact our support team so we'll be able to upgrade that account into an integrator account.
@@ -1137,4 +1113,28 @@ So for example, when creating an order using ```orders``` endpoint with params: 
    "price": ["must_greater_than_or_equal_to_100"]
  }
 }
+```
+
+## Sandbox
+
+For testing, please use our sandbox environment, which is accessible under the `sandbox.dan.com` host. You can find your sandbox `Integrator API Token` in your integrator account’s settings page.
+Apart from the actions described below, it provides an option to put a transaction in a certain state via HTTP endpoints for testing purposes:
+
+To mark a transaction’s payment as received:
+```
+PUT /api/integrator/v1/conversations/:conversation_token/payment_received
+```
+It takes an optional `installment_number` argument, which defines which installment you want to mark as paid (applicable only to lease_to_own orders).
+
+To mark a transaction as cancelled:
+```
+PUT /api/integrator/v1/conversations/:conversation_token/transaction_cancelled
+```
+To move a transaction into a state where the buyer receives his/her transfer instructions:
+```
+PUT /api/integrator/v1/conversations/:conversation_token/account_change_initiated
+```
+To mark a domain as transferred:
+```
+PUT /api/integrator/v1/conversations/:conversation_token/domain_transferred
 ```
