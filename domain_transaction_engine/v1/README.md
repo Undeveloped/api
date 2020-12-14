@@ -45,8 +45,29 @@ Moving on. As an integrator you can choose which integration option suits you be
 
 For example: The lightweight option will only use the Orders endpoint. The Medium option will use the Orders and Conversations endpoint, combined with embedded pages. And lastly, the Advanced option will use all endpoints relevant.
 
+## Sandbox
 
+Sandbox environment is accessible under `sandbox.dan.com` host. You can find your sandox `Integrator API Token` in in your [settings page](https://dan.com/users/settings/profile), in the section "Integrator". Apart from the actions described below, it provides an option to put
+a tranaction in a certain state via HTTP endpoints:
 
+In order to mark a transaction's payment as received:
+```
+PUT /api/integrator/v1/conversations/:conversation_token/payment_received
+```
+It takes an optional `installment_number` argument, which defines which installment you want to mark as paid (applicable only to `lease_to_own` orders).
+
+In order to mark a transaction as cancelled one:
+```
+PUT /api/integrator/v1/conversations/:conversation_token/transaction_cancelled
+```
+In order to to set a transaction into a state where the buyer receives an instructions how to receive a domain:
+```
+PUT /api/integrator/v1/conversations/:conversation_token/account_change_initiated
+```
+In order to mark a domain as transferred:
+```
+PUT /api/integrator/v1/conversations/:conversation_token/domain_transferred
+```
 
 ## Sign up
 
