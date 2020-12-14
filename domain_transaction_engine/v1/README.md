@@ -1117,7 +1117,7 @@ So for example, when creating an order using ```orders``` endpoint with params: 
 
 ## Sandbox
 
-For testing, please use our sandbox environment, which is accessible under the `sandbox.dan.com` host. You can find your sandbox `Integrator API Token` in your integrator account’s settings page.
+For testing, please use our sandbox environment, which is accessible under the `sandbox.dan.com` host. You can find your sandbox `Integrator API Token` in your integrator account’s [settings page](https://dan.com/users/settings/profile).
 Apart from the actions described below, it provides an option to put a transaction in a certain state via HTTP endpoints for testing purposes:
 
 To mark a transaction’s payment as received:
