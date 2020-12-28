@@ -355,13 +355,13 @@ Name | Type | Description | Required
 `phone` | String | The seller's phone number | yes
 `country_code` | String | ALPHA-2 country code of the seller. | no
 `company` | String | seller's company name  | only if `client_type' == "business"`
-`address1` | String | The seller's address | no
+`address1` | String | The seller's address | yes
 `address2` | String | The seller's additional address information. | no
-`city` | String | The seller's city | no
-`zip` | String | Zip code of the seller. | no
+`city` | String | The seller's city | yes
+`zip` | String | Zip code of the seller. | yes
 `state` | String | The US state of the seller, in Two-Letter State Abbreviations format. | only if `country_code == "US"`
 `vat_number` | String | VAT number of the seller | only if `client_type == "business"` AND the country_code represents an EU country.
-`payout_method` | String | The seller's prefferred payout method. `payout_through_bank_transfer` or `payout_through_paypal
+`payout_method` | String | The seller's prefferred payout method. `payout_through_bank_transfer` or `payout_through_paypal | yes
 
 
 Clients represent the DAN,com sellers the integrators can perform actions on behalf of. Every resource of a `client` type has a property `dan_distribution_network_id` which is required to perform an action on behalf of a particilar seller.
