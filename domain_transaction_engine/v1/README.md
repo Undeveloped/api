@@ -638,7 +638,7 @@ GET /api/integrator/v1/domains/
       "tld": "com",
       "buy_now_price": 5000,
       "starting_offer": 1000,
-      "client_dan_distribution_network_id": 1234,
+      "dan_distribution_network_id": 1234,
       "currency_code": "USD | GBP | EUR"
     },
     {
@@ -648,7 +648,7 @@ GET /api/integrator/v1/domains/
       "tld": "com",
       "buy_now_price": 200,
       "starting_offer": 50,
-      "client_dan_distribution_network_id": 1234,
+      "dan_distribution_network_id": 1234,
       "currency_code": "USD | GBP | EUR"
     },
   ]
@@ -669,7 +669,7 @@ GET /api/integrator/v1/domains/example.com
     "tld": "com",
     "buy_now_price": 5000,
     "starting_offer": 1000,
-    "client_dan_distribution_network_id": 1234,
+    "dan_distribution_network_id": 1234,
     "currency_code": "USD | GBP | EUR"
   }
 }
@@ -682,11 +682,11 @@ POST /api/integrator/v1/domains/
 
 ```json
 {
-  client_integrator_token: "4c89d45ad812d8c51fb5de90a3dd9932",
   "domain": {
     "name": "example.com",
     "buy_now_price": 5000,
     "starting_offer": 1000,
+    "dan_distribution_network_id": 1234,
     "currency_code": "USD | GBP | EUR"
   }
 }
@@ -741,11 +741,11 @@ Just like with creating domains, you should send a `domain` object along with yo
 
 ```json
 {
-  "client_intregrator_token": "4c89d45ad812d8c51fb5de90a3dd9932",
   "domain": {
     "name": "anothername.com",
     "buy_now_price": 10000,
     "starting_offer": 4000,
+    "dan_distribution_network_id": 1234,
     "currency_code": "USD | GBP | EUR"
   }
 }
@@ -762,7 +762,7 @@ A successful update will return a `200 OK` http response code which contains the
     "name": "anothername.com",
     "buy_now_price": 10000,
     "starting_offer": 4000,
-    "client_dan_distribution_network_id": 1234,
+    "dan_distribution_network_id": 1234,
     "currency_code": "USD | GBP | EUR"
   }
 }
