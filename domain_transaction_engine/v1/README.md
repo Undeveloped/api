@@ -345,6 +345,25 @@ When the client already exists on our DAN.COM and you have the DAN Distribution 
 
 ## Clients
 
+##### Attributes
+
+Name | Type | Description | Required
+--- | --- | --- | ---
+`client_type` | String | Type of the client. `individual` or `business`. | yes
+`billing_name` | String | The seller's billing name | yes
+`billing_email` | String | The seller's email | yes
+`phone` | String | The seller's phone number | yes
+`country_code` | String | ALPHA-2 country code of the seller. | no
+`company` | String | seller's company name  | only if `client_type' == "business"`
+`address1` | String | The seller's address | no
+`address2` | String | The seller's additional address information. | no
+`city` | String | The seller's city | no
+`zip` | String | Zip code of the seller. | no
+`state` | String | The US state of the seller, in Two-Letter State Abbreviations format. | only if `country_code == "US"`
+`vat_number` | String | VAT number of the seller | only if `client_type == "business"` AND the country_code represents an EU country.
+`payout_method` | String | The seller's prefferred payout method. `payout_through_bank_transfer` or `payout_through_paypal
+
+
 Clients represent the DAN,com sellers the integrators can perform actions on behalf of. Every resource of a `client` type has a property `dan_distribution_network_id` which is required to perform an action on behalf of a particilar seller.
 
 ### Creating a client
@@ -354,28 +373,29 @@ POST https://dan.com/api/integrator/v1/clients
 
 ```json
 {
- "client": {
-   "company": "Company name",
-   "address1": "Some street name 1",
-   "address2": "",
-   "zip": "1234 AB",
-   "city": "Amsterdam",
-   "country": "Nederland",
-   "vat_number": "NL212121B01",
-   "registration": "1234",
-   "billing_name": "Billing name",
-   "iban": "IBAN number",
-   "phone": "12345",
-   "client_type": "business" | "individual",
-   "email": "some@example.com",
-   "first_name": "Some",
-   "last_name": "Name",
-   "currency_code": "USD | GBP | EUR",
-   "payout_method": "payout_through_bank_transfer" | "payout_through_paypal"
-   "bank_accounts": [<bank_account>],
-   "paypal_accounts": [<paypal_account>],
-   "dan_distribution_network_id": ":dan_distrubition_network_id"
-  }
+   "client":{
+      "address1":"101 Main Street",
+      "address2":null,
+      "bank_code":"1234",
+      "bank_name":null,
+      "billing_name":"Dan dot com",
+      "city":"Amsterdam",
+      "client_type":"business",
+      "company":"Dan.com",
+      "country":null,
+      "country_code":"NL",
+      "currency_code":"USD",
+      "dan_distribution_network_id":"563598f4b84f5bece847bff161950d09",
+      "email":"dan@example.com",
+      "display_name":"Private seller",
+      "iban_number":null,
+      "phone":"+31 0611234567",
+      "registration":null,
+      "vat_number":"NL854196468B01",
+      "zip":"12345",
+      "slug":null,
+      "payout_method":"payout_through_bank_transfer",
+   }
 }
 ```
 
@@ -391,29 +411,28 @@ GET /api/integrator/v1/clients/
 {
   "clients": [
     {
-      "id": 123,
-      "company": "Company name",
-      "address1": "Some street name 1",
-      "address2": "",
-      "zip": "1234 AB",
-      "city": "Amsterdam",
-      "country": "Nederland",
-      "vat_number": "NL212121B01",
-      "registration": "1234",
-      "billing_name": "Billing name",
-      "iban": "IBAN number",
-      "phone": "12345",
-      "client_type": "business" | "individual",
-      "bank_code": "1234",
-      "email": "some@example.com",
-      "first_name": "Some",
-      "last_name": "Name",
-      "currency_code": "USD | GBP | EUR",
-      "payout_method": "payout_through_bank_transfer" | "payout_through_paypal"
-      "bank_accounts": [<bank_account>],
-      "paypal_accounts": [<paypal_account>],
-      "dan_distribution_network_id": ":dan_distrubition_network_id"
-    },
+      "address1":"101 Main Street",
+      "address2":null,
+      "bank_code":"1234",
+      "bank_name":null,
+      "billing_name":"Dan dot com",
+      "city":"Amsterdam",
+      "client_type":"business",
+      "company":"Dan.com",
+      "country":null,
+      "country_code":"NL",
+      "currency_code":"USD",
+      "dan_distribution_network_id":"563598f4b84f5bece847bff161950d09",
+      "email":"dan@example.com",
+      "display_name":"Private seller",
+      "iban_number":null,
+      "phone":"+31 0611234567",
+      "registration":null,
+      "vat_number":"NL854196468B01",
+      "zip":"12345",
+      "slug":null,
+      "payout_method":"payout_through_bank_transfer",
+   }
   ]
 }
 ```
@@ -422,34 +441,32 @@ GET /api/integrator/v1/clients/
 ### Showing a client
 
 ```
-GET https://dan.com/api/integrator/v1/clients/<id>
+GET https://dan.com/api/integrator/v1/clients/<dan_distribution_network_id>
 ```
 ```json
 {
   "client":{
-    "id":1234,
-    "company":"Company name",
-    "address1":"Some street name 1",
-    "address2":"",
-    "zip":"1234 AB",
-    "city":"Amsterdam",
-    "country":"Nederland",
-    "vat_number":"NL212121B01",
-    "registration":"1234",
-    "billing_name":"Billing name",
-    "iban":"IBAN number",
-    "phone":"12345",
-    "client_type":"business""|""individual",
-    "bank_code":"1234",
-    "email":"some@example.com",
-    "first_name":"Some",
-    "last_name":"Name",
-    "currency_code":"USD | GBP | EUR",
-    "payout_method": "payout_through_bank_transfer" | "payout_through_paypal"
-    "bank_accounts": [<bank_account>],
-    "paypal_accounts": [<paypal_account>],
-    "dan_distribution_network_id":":dan_distrubition_network_id"
-  }
+      "address1":"101 Main Street",
+      "address2":null,
+      "bank_code":"1234",
+      "bank_name":null,
+      "billing_name":"Dan dot com",
+      "city":"Amsterdam",
+      "client_type":"business",
+      "company":"Dan.com",
+      "country":null,
+      "country_code":"NL",
+      "currency_code":"USD",
+      "dan_distribution_network_id":"563598f4b84f5bece847bff161950d09",
+      "email":"dan@example.com",
+      "display_name":"Private seller",
+      "iban_number":null,
+      "phone":"+31 0611234567",
+      "registration":null,
+      "vat_number":"NL854196468B01",
+      "zip":"12345",
+      "payout_method":"payout_through_bank_transfer",
+   }
 }
 
 ```    
@@ -460,34 +477,35 @@ PUT https://dan.com/api/integrator/v1/clients/<dan_distribution_network_id>
 ```
 ```
 {
-  "client": {
-    "company":"Company name",
-    "address1":"Some street name 1",
-    "address2":"",
-    "zip":"1234 AB",
-    "city":"Amsterdam",
-    "country":"Nederland",
-    "vat_number":"NL212121B01",
-    "registration":"1234",
-    "billing_name":"Billing name",
-    "iban":"IBAN number",
-    "phone":"12345",
-    "client_type":"business""|""individual",
-    "bank_code":"1234",
-    "email":"some@example.com",
-    "first_name":"Some",
-    "last_name":"Name",
-    "bank_accounts": [<bank_account>],
-    "paypal_accounts": [<paypal_account>],
-    "payout_method": "payout_through_bank_transfer" | "payout_through_paypal"
-    "currency_code":"USD | GBP | EUR"
+  "client": 
+      "address1":"101 Main Street",
+      "address2":null,
+      "bank_code":"1234",
+      "bank_name":null,
+      "billing_name":"Dan dot com",
+      "city":"Amsterdam",
+      "client_type":"business",
+      "company":"Dan.com",
+      "country":null,
+      "country_code":"NL",
+      "currency_code":"USD",
+      "dan_distribution_network_id":"563598f4b84f5bece847bff161950d09",
+      "email":"dan@example.com",
+      "display_name":"Private seller",
+      "iban_number":null,
+      "phone":"+31 0611234567",
+      "registration":null,
+      "vat_number":"NL854196468B01",
+      "zip":"12345",
+      "payout_method":"payout_through_bank_transfer",
+   }
   
 ```
 
 ### Deleting a client
 
 ```
-DELETE https://dan.com/api/integrator/v1/clients/<id>
+DELETE https://dan.com/api/integrator/v1/clients/<dan_distribution_network_id>
 ```
 
 ## Bank Accounts
