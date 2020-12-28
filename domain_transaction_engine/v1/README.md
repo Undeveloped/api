@@ -475,7 +475,7 @@ GET https://dan.com/api/integrator/v1/clients/<dan_distribution_network_id>
 ```
 PUT https://dan.com/api/integrator/v1/clients/<dan_distribution_network_id>
 ```
-```
+```json
 {
   "client": 
       "address1":"101 Main Street",
