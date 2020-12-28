@@ -623,6 +623,14 @@ PUT /api/integrator/v1/clients/<client_integrator_token>/paypal_accounts/<id>
     
 ### Domains
 
+Name | Type | Description | Required
+--- | --- | --- | ---
+`client_integrator_token` | String | The token that the client copied from dan.com into your system | yes
+`name` | String | Domain name | yes
+`buy_now_price` | Integer | The price for which the the buyer can buy your domain | yes
+`starting_offer` | Integer | The minimum price at which buyers can bid on your domain. | no
+`currency_code` | String | Currency code. `USD` or `GBP` or `EUR` | yes
+
 ### Listing all domains
 ```
 GET /api/integrator/v1/domains/
@@ -686,22 +694,15 @@ POST /api/integrator/v1/domains/
     "name": "example.com",
     "buy_now_price": 5000,
     "starting_offer": 1000,
-    "dan_distribution_network_id": 1234,
+    "client_dan_distribution_network_id": 1234,
     "currency_code": "USD | GBP | EUR"
   }
 }
 ```
 
-Here is the description of each of the domain attributes:
-
-    name: Name of your domain such as example.com (Required)
-    buy_now_price: The price for which the the buyer can buy your domain (Optional)
-    starting_offer: The minimum price at which buyers can bid on your domain (Optional)
-    dan_distribution_network_id: The clients network id who is the owner of the domain
-
 A sample `curl` request would be like this (JSON):
 
-    $ curl -H "Content-Type: application/json" -X POST --data '{"domain": {"name": "example.com", "buy_now_price": 5000, "starting_offer": 1000, "dan_distribution_network_id": 1234}}' -H "Authorization: Token <your_token>" https://dan.com/api/integrator/v1/domains
+    $ curl -H "Content-Type: application/json" -X POST --data '{"client_integrator_token": <dan_distribution_network_id>, "domain": {"name": "example.com", "buy_now_price": 5000, "starting_offer": 1000}}' -H "Authorization: Token <your_token>" https://dan.com/api/integrator/v1/domains
 
 Here we are passing in a JSON object which is the domain we want to create. If the domain is added successfully, you will receive a `200 OK` http response code, with a response body such as this:
 
@@ -712,7 +713,7 @@ Here we are passing in a JSON object which is the domain we want to create. If t
     "name": "example.com",
     "buy_now_price": 5000,
     "starting_offer": 1000,
-    "dan_distribution_network_id": 1234,
+    "client_dan_distribution_network_id": 1234,
     "currency_code": "USD | GBP | EUR"
   }
 }
@@ -745,7 +746,7 @@ Just like with creating domains, you should send a `domain` object along with yo
     "name": "anothername.com",
     "buy_now_price": 10000,
     "starting_offer": 4000,
-    "dan_distribution_network_id": 1234,
+    "client_dan_distribution_network_id": 1234,
     "currency_code": "USD | GBP | EUR"
   }
 }
@@ -762,7 +763,7 @@ A successful update will return a `200 OK` http response code which contains the
     "name": "anothername.com",
     "buy_now_price": 10000,
     "starting_offer": 4000,
-    "dan_distribution_network_id": 1234,
+    "client_dan_distribution_network_id": 1234,
     "currency_code": "USD | GBP | EUR"
   }
 }
