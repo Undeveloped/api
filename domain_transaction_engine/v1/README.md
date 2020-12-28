@@ -353,7 +353,7 @@ Name | Type | Description | Required
 `billing_name` | String | The seller's billing name | yes
 `billing_email` | String | The seller's email | yes
 `phone` | String | The seller's phone number | yes
-`country_code` | String | ALPHA-2 country code of the seller. | no
+`country_code` | String | ALPHA-2 country code of the seller. | yes
 `company` | String | seller's company name  | only if `client_type' == "business"`
 `address1` | String | The seller's address | yes
 `address2` | String | The seller's additional address information. | no
