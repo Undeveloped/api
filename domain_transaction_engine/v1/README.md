@@ -119,8 +119,8 @@ Name | Type | Description | Required
 `zip` | String | Zip code of the buyer. | no
 `state` | String | The US state of the buyer, in Two-Letter State Abbreviations format. | only if `country_code == "US"`
 `buyer_type` | String | Buyer type. `individual` or `business`. | no
-`buying_action` | String | A buyer action. The expected values are either: `buy_now` or `buy_in_installments`. The default value is `buy_now` | no
-`number_of_installments` | Integer | Number of installments. The value must be between `2` and `60` | only if `buying_action == "buy_in_installments"`. Please keep in mind, domain's `price/number_of_installments` has to be greater or equal to 99 EUR/USD/GBP.
+`buying_action` | String | A buyer action. The expected values are either: `buy_now` or `lease_to_own`. The default value is `buy_now` | no
+`number_of_installments` | Integer | Number of installments. The value must be between `2` and `60` | only if `buying_action == "lease_to_own"`. Please keep in mind, domain's `price/number_of_installments` has to be greater or equal to 99 EUR/USD/GBP.
 `vat_number` | String | VAT number of the buyer | only if `buyer_type == "business"` AND the country_code represents an EU country.
 
 ##### Result
@@ -174,7 +174,7 @@ Name | Type | Description | Required
     "total":12000.0,
     "currency_code":"EUR",
     "vat_option":"vat_option_exclude",
-    "buying_action":"buy_in_installments",
+    "buying_action":"lease_to_own",
     "number_of_installments":60,
     "installment_total":200,
     "vat_number":null,
