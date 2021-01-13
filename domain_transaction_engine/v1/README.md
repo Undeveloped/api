@@ -122,6 +122,7 @@ Name | Type | Description | Required
 `buying_action` | String | A buyer action. The expected values are either: `buy_now` or `lease_to_own`. The default value is `buy_now` | no
 `number_of_installments` | Integer | Number of installments. The value must be between `2` and `60` | only if `buying_action == "lease_to_own"`. Please keep in mind, domain's `price/number_of_installments` has to be greater or equal to 99 EUR/USD/GBP.
 `vat_number` | String | VAT number of the buyer | only if `buyer_type == "business"` AND the country_code represents an EU country.
+`redirect_url` | String | A URL where the user will be redirected to after a transaction. Must be SSL | no
 
 ##### Result
 
