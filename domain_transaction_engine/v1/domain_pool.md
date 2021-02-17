@@ -46,26 +46,115 @@ Currently we have three possible options from exact match queries. Domains with 
 ]
 ```
 **Lease To Own domains**
-```
-"results": [
-  {
-    "domain": {
-      "name": "domain_name.com",
-      "options": [
-        {
-          "buy_now": {
-            "url": "https://dan.com/buy-domain/.com/domain_name.com",
-            "amount": {
-              "value": 20000,
-              "currency_code": "EUR",
-              "formatted": "€200"
-            }
-          }
-        }
-      ]
-    }
-  }
-]
+```json
+{
+   "results":[
+      {
+         "domain":{
+            "name":"exampledomain.com",
+            "options":[
+               {
+                  "buy_now":{
+                     "url":"https://dan.com/buy-domain/exampledomain.com?integrator=c1c144940ebc4d571881754a737182cb&tld=nl",
+                     "amount":{
+                        "value":2200000,
+                        "currency_code":"EUR",
+                        "formatted":"€22,000.00"
+                     }
+                  }
+               },
+               {
+                  "lease_to_own":{
+                     "url":"http://localhost/buy-domain/exampledomain.com?integrator=c1c144940ebc4d571881754a737182cb&tld=nl",
+                     "amount":{
+                        "max_lease_period":16,
+                        "currency_code":"EUR",
+                        "formatted":"€22,000.00",
+                        "monthly_values":{
+                           "2":{
+                              "total":11000,
+                              "markup_percentage":"0.0",
+                              "markup":0
+                           },
+                           "3":{
+                              "total":7334,
+                              "markup_percentage":"0.0",
+                              "markup":0
+                           },
+                           "4":{
+                              "total":5500,
+                              "markup_percentage":"0.0",
+                              "markup":0
+                           },
+                           "5":{
+                              "total":4400,
+                              "markup_percentage":"0.0",
+                              "markup":0
+                           },
+                           "6":{
+                              "total":3667,
+                              "markup_percentage":"0.0",
+                              "markup":0
+                           },
+                           "7":{
+                              "total":3143,
+                              "markup_percentage":"0.0",
+                              "markup":0
+                           },
+                           "8":{
+                              "total":2750,
+                              "markup_percentage":"0.0",
+                              "markup":0
+                           },
+                           "9":{
+                              "total":2445,
+                              "markup_percentage":"0.0",
+                              "markup":0
+                           },
+                           "10":{
+                              "total":2200,
+                              "markup_percentage":"0.0",
+                              "markup":0
+                           },
+                           "11":{
+                              "total":2000,
+                              "markup_percentage":"0.0",
+                              "markup":0
+                           },
+                           "12":{
+                              "total":1834,
+                              "markup_percentage":"0.0",
+                              "markup":0
+                           },
+                           "13":{
+                              "total":1862,
+                              "markup_percentage":"0.1",
+                              "markup":170
+                           },
+                           "14":{
+                              "total":1729,
+                              "markup_percentage":"0.1",
+                              "markup":158
+                           },
+                           "15":{
+                              "total":1614,
+                              "markup_percentage":"0.1",
+                              "markup":147
+                           },
+                           "16":{
+                              "total":1513,
+                              "markup_percentage":"0.1",
+                              "markup":138
+                           }
+                        }
+                     }
+                  }
+               }
+            ]
+         }
+      }
+   ]
+}
 ```
 **Make Offer Domains**
 ```
