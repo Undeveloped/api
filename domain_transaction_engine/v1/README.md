@@ -1,6 +1,8 @@
+# API's
+
 [Domain Pool API](https://github.com/Undeveloped/api/blob/domain-pool-integrator/domain_transaction_engine/v1/domain_pool.md)
 
-[Transaction API](https://github.com/Undeveloped/api/blob/domain-pool-integrator/domain_transaction_engine/v1/domain_pool.md)
+[Transaction API](https://github.com/Undeveloped/api/blob/domain-pool-integrator/domain_transaction_engine/v1/transaction_api.md)
 
 ## Sign up
 
