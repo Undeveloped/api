@@ -46,6 +46,12 @@ Currently we have three possible options from exact match queries. Domains with 
 ]
 ```
 **Lease To Own domains**
+
+In the `monthly_values` object, the keys represent the lease period (in months), so in the response body shown below,
+if the buyer choses for example 14 months as a lease period, the total monthly installment will amount to `€1729` per month 
+and the markup with amount to `€158`. The `markup_percentage` represents a portion of the monthly installment which
+will be put on top of a monthly total price.
+
 ```
 {
    "results":[
