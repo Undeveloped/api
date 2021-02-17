@@ -45,6 +45,28 @@ Currently we have three possible options from exact match queries. Domains with 
   }
 ]
 ```
+**Lease To Own domains**
+```
+"results": [
+  {
+    "domain": {
+      "name": "domain_name.com",
+      "options": [
+        {
+          "buy_now": {
+            "url": "https://dan.com/buy-domain/.com/domain_name.com",
+            "amount": {
+              "value": 20000,
+              "currency_code": "EUR",
+              "formatted": "€200"
+            }
+          }
+        }
+      ]
+    }
+  }
+]
+```
 **Make Offer Domains**
 ```
 "results": [
