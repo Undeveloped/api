@@ -46,7 +46,7 @@ Currently we have three possible options from exact match queries. Domains with 
 ]
 ```
 **Lease To Own domains**
-```json
+```
 {
    "results":[
       {
