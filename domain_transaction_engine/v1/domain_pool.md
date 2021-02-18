@@ -1,4 +1,4 @@
-# Domain Pool API - V1 - Demand
+# Unused Domain Pool - V1
 ### API Endpoint
 **Exact match**
 
@@ -10,18 +10,18 @@ In order to perform a successful API request you always have to include your aut
 
 For example, if you are using `curl` you can authorize your request like this:
 
-    $ curl -H "Authorization: Token <your_token>" https://dan.com/dp/v1/demand/exact/{domain_name}
+    $ curl -H "Authorization: Token <your_token>" https://dan.com/api/integrator/v1/dp/demand/exact/{domain_name}
 
 If you don't provide an auth token, or your auth token is incorrect, you will receive a `401 Unauthorized` http response code.
 
 ### Exact match
-Here’s how you retrieve an exact match from the Domain Pool.
+Here’s how you retrieve an exact match domain when there’s a match:
 
 ```
-post /dp/v1/demand/exact/<domain_name>
+post /api/integrator/v1/dp/demand/exact/<domain_name>
 ```
 
-Currently we have three possible options from exact match queries. Domains with a price will return a so called called buy now (BUY_NOW) price, domains where the buyer can only make an offer (MAKE_OFFER) returns no price and finally domains that might be for sale (MAYBE_FOR_SALE) will also be classified as such to identify they are registered but unused.
+Currently we have three possible options from exact match queries. Domains with a price will return a so called called buy now (BUY_NOW) price, domains where the buyer can only make an offer (MAKE_OFFER) returns no price and finally domains that might be for sale (MAYBE_FOR_SALE) will also be classified as such to identify they are registered but unused. The last option is great when you want to offer our buyer brokerage service directly from your search. This service will be expanded soon with a fixed revenue share model.
 
 **Buy now domains**
 ```
@@ -71,7 +71,7 @@ will be put on top of a monthly total price.
                },
                {
                   "lease_to_own":{
-                     "url":"http://localhost/buy-domain/exampledomain.com?integrator=c1c144940ebc4d571881754a737182cb&tld=nl",
+                     "url":"https://dan.com/buy-domain/exampledomain.com?integrator=c1c144940ebc4d571881754a737182cb&tld=nl",
                      "amount":{
                         "max_lease_period":16,
                         "currency_code":"EUR",
@@ -171,30 +171,12 @@ will be put on top of a monthly total price.
       "options": [
         {
           "make_offer": {
-            "url": "https://dan.com/buy-domain/.com/domain_name.com",
+            "url": "https://dan.com/buy-domain/domain_name.com",
           }
         }
       ]
     }
   }
 ]
-```
-**Maybe For Sale Domains**
-```
-"results": [
-  {
-    "domain": {
-      "name": "domain_name.com",
-      "options": [
-        {
-          "maybe_for_sale": {
-            "url": "https://dan.com/search/com/domain_name.com"
-          }
-        }
-      ]
-    }
-  }
-]
-```
 
 The Undeveloped Domain Pool API is currently in beta stage. Any comments, requests and feedback are welcome.
