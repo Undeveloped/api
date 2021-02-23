@@ -21,7 +21,7 @@ Here’s how you retrieve an exact match domain when there’s a match:
 post /api/integrator/v1/dp/demand/exact/<domain_name>
 ```
 
-Currently we have three possible options from exact match queries. Domains with a price will return a so called called buy now (BUY_NOW) price, domains where the buyer can only make an offer (MAKE_OFFER) returns no price and finally domains that might be for sale (MAYBE_FOR_SALE) will also be classified as such to identify they are registered but unused. The last option is great when you want to offer our buyer brokerage service directly from your search. This service will be expanded soon with a fixed revenue share model.
+Currently we have three possible options from exact match queries. Domains with a price will return a so called called buy now (BUY_NOW) price, domains where the buyer can only make an offer (MAKE_OFFER) returns no price and finally domains that have a lease option available (LEASE_TO_OWN) will also be classified as such.
 
 **Buy now domains**
 ```
