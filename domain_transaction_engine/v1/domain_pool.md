@@ -29,7 +29,7 @@ You do this by passing a header along with your request.
 The format of the header is `Authorization: Token <auth_token>`.
 For example, if you are using `curl` you can authorize your request like this:
 
-    $ curl -H "Authorization: Token <auth_token>" https://dan.com/api/integrator/v1/orders
+    $ curl -H "Authorization: Token <auth_token>" https://dan.com/api/integrator/v1/dp/demand/exact/{domain_name}
 
 If you don't provide an auth token, or your auth token is incorrect, you will receive a `401 Unauthorized` response.
 Please note that the authorization token that is generated is valid for 24 hours, so it's best to not save this token but to generate a new one when setting up a session.
