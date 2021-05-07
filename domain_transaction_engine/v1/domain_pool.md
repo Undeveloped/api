@@ -4,7 +4,6 @@
 
     POST https://dan.com/dp/v1/demand/exact/<domain_name>
 
-
 ## Authorization
 In order to use the API, you need your `Integrator API Token` to generate an expiring authorization token (auth_token).
 You can find your `Integrator API Token` in your [settings page](https://dan.com/users/settings/profile), in the section "Integrator".
@@ -41,7 +40,7 @@ Here’s how you retrieve an exact match domain when there’s a match:
 post /api/integrator/v1/dp/demand/exact/<domain_name>
 ```
 
-Currently we have three possible options from exact match queries. Domains with a price will return a so called called buy now (BUY_NOW) price, domains where the buyer can only make an offer (MAKE_OFFER) returns no price and finally domains that might be for sale (MAYBE_FOR_SALE) will also be classified as such to identify they are registered but unused. The last option is great when you want to offer our buyer brokerage service directly from your search. This service will be expanded soon with a fixed revenue share model.
+We currently provide three options from exact match queries. Domains with a price will return a so called called Buy it Now (BUY_NOW) price. When domain financing (Lease to Own up to 60 monthly terms) is available for Buy it Now listings, an additional LEASE_TO_OWN option will be returned. Some sellers do not work with fixed prices and their domains are offered via the Make an Offer negotiation model for which we return the (MAKE_OFFER) option and these listings do not have a price or the Lease to Own option enabled.
 
 **Buy now domains**
 ```
@@ -68,7 +67,7 @@ Currently we have three possible options from exact match queries. Domains with 
 **Lease To Own domains**
 
 In the `monthly_values` object, the keys represent the lease period (in months), so in the response body shown below,
-if the buyer choses for example 14 months as a lease period, the total monthly installment will amount to `€1729` per month 
+if the buyer chooses for example 14 months as a lease period, the total monthly installment will amount to `€1729` per month 
 and the markup with amount to `€158`. The `markup_percentage` represents a portion of the monthly installment which
 will be put on top of a monthly total price.
 
@@ -198,5 +197,6 @@ will be put on top of a monthly total price.
     }
   }
 ]
+```
 
-The Undeveloped Domain Pool API is currently in beta stage. Any comments, requests and feedback are welcome.
+The Undeveloped Domain Pool API is currently in beta stage. Any comments, requests and feedback are welcome.” to “The Unused Domain Pool API is in post Beta development. Any feedback is highly appreciated and will be used to improve the API for all users.
