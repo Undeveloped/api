@@ -1,6 +1,6 @@
 # Official API documentation for DAN.COM platform
 
-[Domain Pool API](dan_seller_api/domain_pool.md)
+[Domain Pool API](domain_transaction_engine/v1/domain_pool_api.md)
 
 [Domain API](dan_seller_api/domain_api.md)
 
