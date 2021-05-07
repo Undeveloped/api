@@ -4,15 +4,34 @@
 
     POST https://dan.com/dp/v1/demand/exact/<domain_name>
 
+## Authorization
+In order to use the API, you need your `Integrator API Token` to generate an expiring authorization token (auth_token).
+You can find your `Integrator API Token` in your [settings page](https://dan.com/users/settings/profile), in the section "Integrator".
 
-### Authorization
-In order to perform a successful API request you always have to include your authorization token (Auth Token) in the header. The format of the header is designed as follow: Authorization: Token ``<your_token>``, where ``<your_token>`` is your Auth Token.
+So first generate an expiring authorization token:
 
+```
+$ curl -X POST -d "integrator_token=<your_api_token>" https://dan.com/api/integrator/v1/tokens
+```
+ 
+result:
+
+```json
+{
+ "token":"<your_token>"
+}
+```
+
+The token in the result is the authorization token which is needed for every request with the API.
+
+You do this by passing a header along with your request.
+The format of the header is `Authorization: Token <auth_token>`.
 For example, if you are using `curl` you can authorize your request like this:
 
-    $ curl -H "Authorization: Token <your_token>" https://dan.com/api/integrator/v1/dp/demand/exact/{domain_name}
+    $ curl -H "Authorization: Token <auth_token>" https://dan.com/api/integrator/v1/dp/demand/exact/{domain_name}
 
-If you don't provide an auth token, or your auth token is incorrect, you will receive a `401 Unauthorized` http response code.
+If you don't provide an auth token, or your auth token is incorrect, you will receive a `401 Unauthorized` response.
+Please note that the authorization token that is generated is valid for 24 hours, so it's best to not save this token but to generate a new one when setting up a session.
 
 ### Exact match
 Here’s how you retrieve an exact match domain when there’s a match:
