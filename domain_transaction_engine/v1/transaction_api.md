@@ -633,7 +633,7 @@ GET /api/integrator/v1/domains/
 
 ### Showing domains
 ```
-GET /api/integrator/v1/domains/example.com
+GET /api/integrator/v1/domains/<id>
 ```
 
 ```json
