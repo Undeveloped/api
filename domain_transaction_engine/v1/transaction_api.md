@@ -658,7 +658,7 @@ POST /api/integrator/v1/domains/
 
 ```json
 {
-  "client_integrator_token: 1234
+  "client_integrator_token": 1234,
   "domain": {
     "name": "example.com",
     "buy_now_price": 5000,
