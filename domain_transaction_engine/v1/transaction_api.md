@@ -658,11 +658,11 @@ POST /api/integrator/v1/domains/
 
 ```json
 {
+  "client_integrator_token: 1234
   "domain": {
     "name": "example.com",
     "buy_now_price": 5000,
     "starting_offer": 1000,
-    "client_dan_distribution_network_id": 1234,
     "currency_code": "USD | GBP | EUR"
   }
 }
@@ -676,12 +676,12 @@ Here we are passing in a JSON object which is the domain we want to create. If t
 
 ```json
 {
+  "client_integrator_token": 1234,
   "domain": {
     "id": 147042,
     "name": "example.com",
     "buy_now_price": 5000,
     "starting_offer": 1000,
-    "client_dan_distribution_network_id": 1234,
     "currency_code": "USD | GBP | EUR"
   }
 }
@@ -710,11 +710,11 @@ Just like with creating domains, you should send a `domain` object along with yo
 
 ```json
 {
+  "client_integrator_token": 1234,
   "domain": {
     "name": "anothername.com",
     "buy_now_price": 10000,
     "starting_offer": 4000,
-    "client_dan_distribution_network_id": 1234,
     "currency_code": "USD | GBP | EUR"
   }
 }
@@ -726,12 +726,12 @@ A successful update will return a `200 OK` http response code which contains the
 
 ```json
 {
+  "client_integrator_token": 1234,
   "domain": {
     "id": 147042,
     "name": "anothername.com",
     "buy_now_price": 10000,
     "starting_offer": 4000,
-    "client_dan_distribution_network_id": 1234,
     "currency_code": "USD | GBP | EUR"
   }
 }
