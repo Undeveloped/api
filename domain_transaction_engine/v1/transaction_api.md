@@ -17,7 +17,7 @@ We offer three types of integration:
 
 # Glossary
 
-`client_integrator_token` - Dan Distribution Network ID/Dan Partner ID of a seller you want to perform an action on behalf of. A seller can find the token in the seller's settings page https://dan.com/users/settings/profile
+`client_integrator_token` - Dan Distribution Network ID/Dan Partner ID of a seller you want to perform an action on behalf of. A seller can find the token in the seller's settings page: https://dan.com/users/settings/profile
 
 **The big differences between the integration types that we offer:**
 
