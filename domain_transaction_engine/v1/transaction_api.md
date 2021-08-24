@@ -289,7 +289,8 @@ Creating a client's paypal account | PUT | https://dan.com/api/integrator/v1/cli
 Action | VERB | URL
 --- | --- | ---
 Listing all your domains | GET | https://dan.com/api/integrator/v1/domains/
-Creating a domain | POST | https://dan.com/api/integrator/v1/domains
+Creating a domain
+| POST | https://dan.com/api/integrator/v1/domains
 Showing a domain | GET | https://dan.com/api/integrator/v1/domains/<**id**>
 Updating a domain | PUT | https://dan.com/api/integrator/v1/domains/<**id**>
 Deleting a domain | DELETE | https://dan.com/api/integrator/v1/domains/<**id**>
@@ -602,6 +603,7 @@ Name | Type | Description | Required
 `buy_now_price` | Integer | The price for which the the buyer can buy your domain | yes
 `starting_offer` | Integer | The minimum price at which buyers can bid on your domain. | no
 `currency_code` | String | Currency code. `USD` or `GBP` or `EUR` | yes
+`status` | String | Defines a domain inventory. if "domain_pool" is passed, the domain will be publicly available. By default, domain is not publicly available and can only be used within a Transactional Engine API | no
 
 ### Listing all domains
 ```
@@ -668,6 +670,7 @@ POST /api/integrator/v1/domains/
     "starting_offer": 1000,
     "client_dan_distribution_network_id": 1234,
     "currency_code": "USD | GBP | EUR"
+    "status": "domain_pool"
   }
 }
 ```
